@@ -1,0 +1,5 @@
+﻿  main.cpp
+  menu.cpp
+C:\Users\Administrador\source\repos\MoonPatrol\src\System\menu.cpp(5,2): error C3861: 'GameLoop': no se encontró el identificador
+  GameLoop.cpp
+  Generando código...

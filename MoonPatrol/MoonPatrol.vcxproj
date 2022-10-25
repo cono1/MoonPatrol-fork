@@ -147,7 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MoonPatrol.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\System\menu.cpp" />
+    <ClCompile Include="src\System\GameLoop.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\System\GameLoop.h" />
+    <ClInclude Include="src\System\menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
