@@ -4,6 +4,6 @@ void GameLoop()
 {
 	while (true)
 	{
-		//nice
+		//nicer
 	}
 }
