@@ -4,6 +4,9 @@
     <Filter Include="System">
       <UniqueIdentifier>{dff1172d-8e0e-422b-a8b9-c0a33aa21081}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObjects">
+      <UniqueIdentifier>{4b4640e6-9225-4618-87e0-fbb4830ce310}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -13,6 +16,12 @@
     <ClCompile Include="src\System\GameLoop.cpp">
       <Filter>System</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameObjects\Enemy.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObjects\Player.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\System\menu.h">
@@ -20,6 +29,12 @@
     </ClInclude>
     <ClInclude Include="src\System\GameLoop.h">
       <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObjects\Enemy.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObjects\Player.h">
+      <Filter>GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
