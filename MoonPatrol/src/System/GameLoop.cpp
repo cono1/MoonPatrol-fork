@@ -21,7 +21,6 @@ void GameLoop()
 {
 	InitialSetup();
 
-
 	while (!WindowShouldClose())
 	{
 		Update();
