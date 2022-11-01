@@ -54,5 +54,5 @@ void Draw()
 
 void DrawGameVersion()
 {
-	DrawText("Version: 0.1", 0,0, 46, RAYWHITE);
+	DrawText("Version: 0.2", 0,0, 46, RAYWHITE);
 }
