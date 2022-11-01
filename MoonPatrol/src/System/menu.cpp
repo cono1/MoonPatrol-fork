@@ -5,7 +5,7 @@ void StartWindow();
 
 void ShowMenu();
 
-void CheckButton(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton);
+bool CheckButton(Rectangle playButton);
 
 void DrawMenu(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton);
 void DrawTitle(const char* text);
@@ -47,7 +47,7 @@ void StartProgram()
 	GameLoop();
 }
 
-void ShowMenu()
+void ShowMenu(MenuScreen& currentScreen)
 {
 	Rectangle playButton{ GetScreenWidth() / 4 - GetScreenWidth() / 4 / 2,
 		GetScreenHeight() / 2 + 20,
@@ -58,13 +58,27 @@ void ShowMenu()
 	Rectangle creditsButton{ 0,0,0,0 };
 	Rectangle quitButton{ 0,0,0,0 };
 
-	CheckButton(playButton, optionsButton, creditsButton, quitButton);
+	if (CheckButton(playButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+	{
 
+	}
+	else if (CheckButton(optionsButton))
+	{
+
+	}
+	else if (CheckButton(creditsButton))
+	{
+
+	}
+	else if (CheckButton(quitButton))
+	{
+
+	}
 
 	DrawMenu(playButton, optionsButton, creditsButton, quitButton);
 }
 
-void CheckButton(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton)
+bool CheckButton(Rectangle button)
 {
 	
 }
