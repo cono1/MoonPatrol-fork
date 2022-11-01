@@ -7,8 +7,6 @@ void ShowMenu(MenuScreen& currentScreen);
 
 void ShowCredits(MenuScreen& currentScreen);
 
-bool CheckButton(Rectangle playButton);
-
 void DrawMenu(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton);
 void DrawTitle(const char* text);
 void DrawButtons(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton);
@@ -33,6 +31,7 @@ void StartProgram()
 			break;
 		case MenuScreen::Play:
 			GameLoop();
+			currentScreen = MenuScreen::MainMenu;
 			break;
 		case MenuScreen::Options:
 			break;

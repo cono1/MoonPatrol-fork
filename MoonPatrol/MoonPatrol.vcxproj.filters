@@ -9,10 +9,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\System\menu.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
     <ClCompile Include="src\System\GameLoop.cpp">
       <Filter>System</Filter>
     </ClCompile>
@@ -22,11 +18,15 @@
     <ClCompile Include="src\GameObjects\Player.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="src\System\MainMenu.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\CreditsMenu.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\System\menu.h">
-      <Filter>System</Filter>
-    </ClInclude>
     <ClInclude Include="src\System\GameLoop.h">
       <Filter>System</Filter>
     </ClInclude>
@@ -35,6 +35,9 @@
     </ClInclude>
     <ClInclude Include="src\GameObjects\Player.h">
       <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\MainMenu.h">
+      <Filter>System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

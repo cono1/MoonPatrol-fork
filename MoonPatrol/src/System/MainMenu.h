@@ -2,6 +2,7 @@
 #include "raylib.h"
 
 void StartProgram();
+bool CheckButton(Rectangle playButton);
 
 enum class MenuScreen
 {
