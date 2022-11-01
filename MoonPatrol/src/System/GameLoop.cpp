@@ -4,6 +4,7 @@ void InitialSetup();
 void Update();
 
 void Draw();
+void DrawGameVersion();
 
 Player* player;
 Enemy* lower;
@@ -31,6 +32,7 @@ void GameLoop()
 void Update()
 {
 	lower->Move();
+	player->TakeInput();
 }
 
 void Draw()
@@ -39,5 +41,14 @@ void Draw()
 	ClearBackground(BLACK);
 	player->Draw();
 	lower->Draw();
+
+
+
+	DrawGameVersion();
 	EndDrawing();
+}
+
+void DrawGameVersion()
+{
+	DrawText("Version: 0.1", 0,0, 46, RAYWHITE);
 }

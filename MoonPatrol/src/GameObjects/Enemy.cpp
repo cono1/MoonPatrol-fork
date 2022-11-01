@@ -21,6 +21,8 @@ void Enemy::ChangePosition(Vector2 newPosition)
 
 void Enemy::Move()
 {
+	this->CheckLimits();
+
 	Vector2 newPos;
 
 	newPos = { this->position.x + speed * GetFrameTime(), this->position.y };
