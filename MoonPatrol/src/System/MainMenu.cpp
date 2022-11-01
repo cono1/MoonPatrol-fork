@@ -1,9 +1,11 @@
-#include "menu.h"
+#include "MainMenu.h"
 
 void StartWindow();
 
 
-void ShowMenu();
+void ShowMenu(MenuScreen& currentScreen);
+
+void ShowCredits(MenuScreen& currentScreen);
 
 bool CheckButton(Rectangle playButton);
 
@@ -27,14 +29,15 @@ void StartProgram()
 		switch (currentScreen)
 		{
 		case MenuScreen::MainMenu:
-			ShowMenu();
+			ShowMenu(currentScreen);
 			break;
 		case MenuScreen::Play:
-			//GameLoop();
+			GameLoop();
 			break;
 		case MenuScreen::Options:
 			break;
 		case MenuScreen::Credits:
+			ShowCredits(currentScreen);
 			break;
 		case MenuScreen::Quit:
 			break;
@@ -43,8 +46,6 @@ void StartProgram()
 		}
 
 	}
-
-	GameLoop();
 }
 
 void ShowMenu(MenuScreen& currentScreen)
@@ -60,17 +61,17 @@ void ShowMenu(MenuScreen& currentScreen)
 
 	if (CheckButton(playButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 	{
-
+		currentScreen = MenuScreen::Play;
 	}
-	else if (CheckButton(optionsButton))
+	else if (CheckButton(optionsButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 	{
 
 	}
-	else if (CheckButton(creditsButton))
+	else if (CheckButton(creditsButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 	{
 
 	}
-	else if (CheckButton(quitButton))
+	else if (CheckButton(quitButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 	{
 
 	}
@@ -80,7 +81,15 @@ void ShowMenu(MenuScreen& currentScreen)
 
 bool CheckButton(Rectangle button)
 {
-	
+	if (GetMouseX() >= button.x &&
+		GetMouseX() <= button.x + button.width &&
+		GetMouseY() >= button.y &&
+		GetMouseY() <= button.y + button.height)
+	{
+		return true;
+	}
+
+	return false;
 }
 
 void DrawMenu(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton)
