@@ -58,4 +58,9 @@ public:
 	
 	//Drawing functions
 	void Draw();
+
+	//Getters
+	Vector2 GetPosition();
+	float GetRadius();
+
 };

@@ -9,6 +9,8 @@ void DrawGameVersion();
 Player* player;
 Enemy* lower;
 
+bool playing = true;
+
 void InitialSetup()
 {
 	player = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
@@ -21,11 +23,14 @@ void GameLoop()
 {
 	InitialSetup();
 
-	while (!WindowShouldClose())
+	while (!WindowShouldClose() && playing)
 	{
 		Update();
 		Draw();
 	}
+
+	delete player;
+	delete lower;
 }
 
 void Update()

@@ -16,7 +16,7 @@ public:
 	void DealDamage();
 	void ChangePosition(Vector2 newPosition);
 	void CheckLimits();
-	void CheckCollision();
+	bool CheckCollision();
 
 	void Draw();
 };

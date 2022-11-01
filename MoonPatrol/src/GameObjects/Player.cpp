@@ -109,6 +109,16 @@ void Player::ChangePosition(Vector2 position)
 	this->position = position;
 }
 
+Vector2 Player::GetPosition()
+{
+	return this->position;
+}
+
+float Player::GetRadius()
+{
+	return this->radius;
+}
+
 void Player::Draw()
 {
 	DrawCircleV(this->position, this->radius, RAYWHITE);

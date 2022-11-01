@@ -1,7 +1,9 @@
 #include "Player.h"
 #include "Enemy.h"
+#include "raymath.h"
 
 extern Player* player;
+extern bool playing;
 
 int spawnOffset = 10;
 
@@ -28,6 +30,11 @@ void Enemy::Move()
 	newPos = { this->position.x + speed * GetFrameTime(), this->position.y };
 
 	this->position = newPos;
+
+	if (CheckCollision())
+	{
+		playing = false;
+	}
 }
 
 void Enemy::DealDamage()
@@ -43,9 +50,21 @@ void Enemy::CheckLimits()
 	}
 }
 
-void Enemy::CheckCollision()
+bool Enemy::CheckCollision()
 {
-	
+	float distX = player->GetPosition().y - this->position.y;
+	float distY = player->GetPosition().x - this->position.x;
+
+	double distance = sqrt((distX * distX) + (distY * distY));
+
+	if (distance <= player->GetRadius() + this->radius) 
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 void Enemy::Draw()
