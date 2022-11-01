@@ -15,6 +15,8 @@ public:
 	void Move();
 	void DealDamage();
 	void ChangePosition(Vector2 newPosition);
+	void CheckLimits();
+	void CheckCollision();
 
 	void Draw();
 };
