@@ -22,7 +22,7 @@ void GameLoop()
 	InitialSetup();
 
 
-	while (true)
+	while (!WindowShouldClose())
 	{
 		Update();
 		Draw();
