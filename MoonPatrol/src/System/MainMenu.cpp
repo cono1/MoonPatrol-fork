@@ -54,8 +54,13 @@ void ShowMenu(MenuScreen& currentScreen)
 		GetScreenWidth() / 4,
 		GetScreenHeight() / 12 };
 
-	Rectangle optionsButton{ 0,0,0,0 };
-	Rectangle creditsButton{ 0,0,0,0 };
+	Rectangle optionsButton{ 0,0,0,0};
+
+	Rectangle creditsButton{ GetScreenWidth() - GetScreenWidth() / 4 - GetScreenWidth() / 4 / 2,
+		GetScreenHeight() / 2 + 20,
+		GetScreenWidth() / 4,
+		GetScreenHeight() / 12 };
+	
 	Rectangle quitButton{ 0,0,0,0 };
 
 	if (CheckButton(playButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
@@ -68,7 +73,7 @@ void ShowMenu(MenuScreen& currentScreen)
 	}
 	else if (CheckButton(creditsButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 	{
-
+		currentScreen = MenuScreen::Credits;
 	}
 	else if (CheckButton(quitButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 	{
@@ -113,7 +118,7 @@ void DrawButtons(Rectangle playButton, Rectangle optionsButton, Rectangle credit
 {
 	DrawRectangleRec(playButton, RAYWHITE);
 	//DrawRectangleRec(optionsButton, RAYWHITE);
-	//DrawRectangleRec(creditsButton, RAYWHITE);
+	DrawRectangleRec(creditsButton, RAYWHITE);
 	//DrawRectangleRec(quitButton, RAYWHITE);
 }
 

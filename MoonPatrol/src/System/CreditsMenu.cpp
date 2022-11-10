@@ -1,5 +1,7 @@
 #include "System/MainMenu.h"
 
+void DrawTitle(const char* text);
+
 void ShowCredits(MenuScreen& currentScreen)
 {
 	Rectangle backButton { GetScreenWidth() / 4 - GetScreenWidth() / 4 / 2,
@@ -9,6 +11,16 @@ void ShowCredits(MenuScreen& currentScreen)
 
 	if (CheckButton(backButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 	{
-		currentScreen = MenuScreen::Play;
+		currentScreen = MenuScreen::MainMenu;
 	}
+
+	BeginDrawing();
+	ClearBackground(BLACK);
+
+	DrawTitle("CREDITS");
+
+	DrawRectangleRec(backButton, RAYWHITE);
+
+
+	EndDrawing();
 }
