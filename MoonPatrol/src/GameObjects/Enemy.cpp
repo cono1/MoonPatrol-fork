@@ -52,12 +52,12 @@ void Enemy::CheckLimits()
 
 bool Enemy::CheckCollision()
 {
-	float distX = player->GetPosition().y - this->position.y;
-	float distY = player->GetPosition().x - this->position.x;
+	double distX = static_cast<double>(player->GetPosition().x) - static_cast<double>(this->position.x);
+	double distY = static_cast<double>(player->GetPosition().y) - static_cast<double>(this->position.y);
 
-	double distance = sqrt((distX * distX) + (distY * distY));
+	float distance = sqrt((distX * distX) + (distY * distY));
 
-	if (distance <= player->GetRadius() + this->radius) 
+	if (distance <= player->GetRadius() + this->radius)
 	{
 		return true;
 	}

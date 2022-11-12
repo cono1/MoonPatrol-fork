@@ -25,6 +25,9 @@
       <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\GameObjects\BackgroundImage.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\System\GameLoop.h">
@@ -38,6 +41,9 @@
     </ClInclude>
     <ClInclude Include="src\System\MainMenu.h">
       <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObjects\BackgroundImage.h">
+      <Filter>GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

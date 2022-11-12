@@ -10,6 +10,8 @@ void DrawGameVersion();
 Player* player;
 Enemy* lower;
 
+BackgroundImage* bgImage;
+
 bool playing = true;
 
 void InitialSetup()
@@ -18,7 +20,9 @@ void InitialSetup()
 	player = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
 	lower = new Enemy(GetScreenHeight() / 20.0f, 1, -200.0f);
 
-	lower->ChangePosition({GetScreenWidth() + 20.0f, GetScreenHeight()/2.0f});
+	lower->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
+
+	//bgImage = new BackgroundImage();
 }
 
 void GameLoop()
@@ -31,8 +35,17 @@ void GameLoop()
 		Draw();
 	}
 
-	delete player;
-	delete lower;
+	if (player != nullptr)
+	{
+		delete player;
+		player = nullptr;
+	}
+
+	if (lower != nullptr)
+	{
+		delete lower;
+		lower = nullptr;
+	}
 }
 
 void Update()
@@ -55,7 +68,12 @@ void Draw()
 	EndDrawing();
 }
 
+void DrawBackground()
+{
+
+}
+
 void DrawGameVersion()
 {
-	DrawText("Version: 0.2", 0,0, 46, RAYWHITE);
+	DrawText("Version: 0.2", 0, 0, 46, RAYWHITE);
 }

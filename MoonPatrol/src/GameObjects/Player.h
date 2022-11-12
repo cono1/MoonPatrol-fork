@@ -24,9 +24,12 @@ class Player
 {
 
 private:
+	
+	JumpSettings jumpSettings;
+	
 	Vector2 velocity;
 	Vector2 position;
-	JumpSettings jumpSettings;
+
 	bool isDead;
 	bool ascending;
 	bool isGrounded;
