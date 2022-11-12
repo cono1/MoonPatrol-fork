@@ -24,4 +24,6 @@ public:
 	void Move();
 	void Reposition(Vector2 newPosition);
 	void ChangeColor(Color color);
+
+	void Draw();
 };

@@ -7,7 +7,7 @@ BackgroundImage::BackgroundImage(Texture2D text, Color color, int layer)
 	this->layer = layer;
 
 	this->speedX = this->speedXDefault;
-	this->body = { 0,0, static_cast<float>(text.width), static_cast<float>(text.height) };
+	this->body = { 0,0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
 }
 
 void BackgroundImage::ChangeSpeedX(int newSpeedX)
@@ -29,4 +29,10 @@ void BackgroundImage::Reposition(Vector2 newPosition)
 void BackgroundImage::ChangeColor(Color newColor)
 {
 	this->color = newColor;
+}
+
+void BackgroundImage::Draw()
+{
+	DrawTexturePro(this->texture, { 0,0, static_cast<float>(this->texture.width), static_cast<float>(this->texture.height) }, this->body, { 0,0 }, 0.0f, RAYWHITE);
+	//DrawTextureRec(this->texture, this->body, { this->body.x, this->body.y }, RAYWHITE);
 }

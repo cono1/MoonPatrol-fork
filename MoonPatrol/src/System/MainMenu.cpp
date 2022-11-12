@@ -125,7 +125,7 @@ void DrawButtons(Rectangle playButton, Rectangle optionsButton, Rectangle credit
 void StartWindow()
 {
 	int width = 1024;
-	int height = 768;
+	int height = 720;
 
 	InitWindow(width, height, "MoonPatrol - By Ian Kuznicki");
 }
