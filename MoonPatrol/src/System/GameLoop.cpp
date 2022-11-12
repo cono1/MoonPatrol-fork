@@ -4,6 +4,7 @@ void InitialSetup();
 void Update();
 
 void Draw();
+void DrawBackground();
 void DrawGameVersion();
 
 Player* player;
