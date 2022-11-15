@@ -14,9 +14,6 @@ Player* player;
 Enemy* lower;
 
 BackgroundImage* backgroundImages[8];
-BackgroundImage* forestLight;
-BackgroundImage* forestMiddle;
-BackgroundImage* forestFront;
 
 bool playing = true;
 

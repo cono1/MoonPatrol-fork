@@ -1,10 +1,10 @@
 #include "Player.h"
 
-Player::Player(Vector2 position, float radius, int lifes)
+Player::Player(Vector2 position, float radius, int health)
 {
 	this->position = position;
 	this->radius = radius;
-	this->lifes = lifes;
+	this->health = health;
 	this->velocity = { 0,0 };
 
 	this->isDead = false;
@@ -19,8 +19,8 @@ Player::Player(Vector2 position, float radius, int lifes)
 
 void Player::Damage(int damage)
 {
-	this->lifes -= damage;
-	if (lifes <= 0)
+	this->health -= damage;
+	if (health <= 0)
 		this->isDead = true;
 }
 

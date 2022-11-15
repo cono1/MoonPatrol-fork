@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+#include "Bullet.h"
 
 enum class InputType
 {
@@ -25,6 +26,8 @@ class Player
 
 private:
 	
+	Bullet bullets[20];
+
 	JumpSettings jumpSettings;
 	
 	Vector2 velocity;
@@ -34,11 +37,11 @@ private:
 	bool ascending;
 	bool isGrounded;
 	float radius;
-	int lifes;
+	int health;
 	
 
 public:
-	Player(Vector2 position, float radius, int lifes);
+	Player(Vector2 position, float radius, int health);
 	//~Player();
 
 	//Main action selection
