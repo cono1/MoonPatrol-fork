@@ -24,7 +24,7 @@ void InitialSetup()
 
 	player = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
 	groundEnemy = new Enemy(GetScreenHeight() / 20.0f, 1, -200.0f);
-	bullet = new Bullet(player->GetPosition(), 10, GetScreenHeight() / 40.0f, false);
+	bullet = new Bullet(player->GetPosition(), 1000, GetScreenHeight() / 80.0f, false);
 
 	groundEnemy->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
 
@@ -102,10 +102,9 @@ void Update()
 	groundEnemy->Move();
 	player->TakeInput();
 	bullet->Update(player->GetPosition());
-	if (bullet->GetStatus())
-	{
-		bullet->Move();
-	}
+
+	bullet->Move();
+	
 	for (int i = 0; i < 8; i++)
 	{
 		backgroundImages[i]->Move();
@@ -122,7 +121,10 @@ void Draw()
 	player->Draw();
 	groundEnemy->Draw();
 
-	bullet->Draw();
+	if (bullet->GetStatus())
+	{
+		bullet->Draw();
+	}
 	
 
 	DrawGameVersion();

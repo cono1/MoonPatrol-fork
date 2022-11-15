@@ -16,10 +16,9 @@ Bullet::~Bullet()
 
 void Bullet::Move()
 {
-	do
-	{
+
 		this->position.y -= speed * GetFrameTime();
-	} while (position.y > 0);
+
 }
 
 void Bullet::Draw()
@@ -29,7 +28,16 @@ void Bullet::Draw()
 
 void Bullet::Update(Vector2 playerPos)
 {
-	this->position = playerPos;
+	if (IsKeyPressed(KEY_ENTER) && !isAlive)
+	{
+		this->position = playerPos;
+		isAlive = true;
+	}
+
+	if (position.y < 0)
+	{
+		isAlive = false;
+	}
 }
 
 bool Bullet::CheckCollision(Vector2 position, float radius)
