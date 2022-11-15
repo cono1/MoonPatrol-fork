@@ -111,14 +111,18 @@ void DrawMenu(Rectangle playButton, Rectangle optionsButton, Rectangle creditsBu
 
 void DrawTitle(const char* text)
 {
-	DrawText(text, GetScreenWidth() / 2.0f - MeasureText(text, 46) / 2, GetScreenHeight() / 7.0f, 46, RAYWHITE);
+	DrawText(text, GetScreenWidth() / 2.0f - MeasureText(text, 46) / 2, GetScreenHeight() / 7.0f, 48, RAYWHITE);
 }
 
 void DrawButtons(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton)
 {
 	DrawRectangleRec(playButton, RAYWHITE);
+	Vector2 playMeasure = MeasureTextEx(GetFontDefault(), "PLAY", 36, 0);
+	DrawText("PLAY", playButton.x + playButton.width / 2 - playMeasure.x / 2, playButton.y + playButton.height / 2 - playMeasure.y / 2, 36, BLACK);
 	//DrawRectangleRec(optionsButton, RAYWHITE);
+	Vector2 creditsMeasure = MeasureTextEx(GetFontDefault(), "CREDITS", 36, 0);
 	DrawRectangleRec(creditsButton, RAYWHITE);
+	DrawText("CREDITS", creditsButton.x + creditsButton.width / 2 - creditsMeasure.x / 2, creditsButton.y + creditsButton.height / 2 - creditsMeasure.y / 2, 36, BLACK);
 	//DrawRectangleRec(quitButton, RAYWHITE);
 }
 
