@@ -1,13 +1,36 @@
 #include "BackgroundImage.h"
 
-BackgroundImage::BackgroundImage(Texture2D text, Color color, int layer)
+BackgroundImage::BackgroundImage(Texture2D text, Color color, int layer, Rectangle body)
 {
 	this->texture = text;
 	this->color = color;
 	this->layer = layer;
 
-	this->speedX = this->speedXDefault;
-	this->body = { 0,0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+	switch (layer)
+	{
+	case 0:
+		this->speedX = this->speedXReference / 5;
+		break;
+	case 1:
+		this->speedX = this->speedXReference / 3;
+		break;
+	case 2:
+		this->speedX = this->speedXReference / 2;
+		break;
+	case 3:
+		this->speedX = this->speedXReference;
+		break;
+	default:
+		break;
+	}
+	this->speedXReference = this->speedX;
+	
+	this->body = body;
+}
+
+int BackgroundImage::GetLayer()
+{
+	return this->layer;
 }
 
 void BackgroundImage::ChangeSpeedX(int newSpeedX)
@@ -17,7 +40,11 @@ void BackgroundImage::ChangeSpeedX(int newSpeedX)
 
 void BackgroundImage::Move()
 {
-	this->body.x -= this->speedX;
+	if (this->body.x + this->body.width <= 0)
+	{
+		this->Reposition({ static_cast<float>(GetScreenWidth()), this->body.y });
+	}
+	this->body.x -= this->speedX * GetFrameTime();
 }
 
 void BackgroundImage::Reposition(Vector2 newPosition)

@@ -5,7 +5,7 @@ class BackgroundImage
 {
 private:
 
-	const int speedXDefault = 5;
+	int speedXReference = 100;
 
 	//Could be part of another class
 	Color color;
@@ -17,8 +17,10 @@ private:
 	Rectangle body;
 
 public:
-	BackgroundImage(Texture2D text, Color color, int layer);
+	BackgroundImage(Texture2D text, Color color, int layer, Rectangle body);
 	//~BackgroundImage();
+
+	int GetLayer();
 
 	void ChangeSpeedX(int newSpeedX);
 	void Move();
