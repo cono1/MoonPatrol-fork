@@ -17,6 +17,5 @@ public:
 	void ChangePosition(Vector2 newPosition);
 	void CheckLimits();
 	bool CheckCollision();
-
 	void Draw();
 };

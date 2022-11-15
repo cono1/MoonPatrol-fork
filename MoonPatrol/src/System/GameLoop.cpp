@@ -11,7 +11,8 @@ void DrawBackground();
 void DrawGameVersion();
 
 Player* player;
-Enemy* lower;
+Enemy* groundEnemy;
+Bullet* bullet;
 
 BackgroundImage* backgroundImages[8];
 
@@ -19,13 +20,13 @@ bool playing = true;
 
 void InitialSetup()
 {
-
 	playing = true;
 
 	player = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
-	lower = new Enemy(GetScreenHeight() / 20.0f, 1, -200.0f);
+	groundEnemy = new Enemy(GetScreenHeight() / 20.0f, 1, -200.0f);
+	bullet = new Bullet(player->GetPosition(), 10, GetScreenHeight() / 40.0f, false);
 
-	lower->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
+	groundEnemy->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
 
 	CreateBackgrounds();
 
@@ -83,18 +84,28 @@ void GameLoop()
 		player = nullptr;
 	}
 
-	if (lower != nullptr)
+	if (bullet != nullptr)
 	{
-		delete lower;
-		lower = nullptr;
+		delete bullet;
+		bullet = nullptr;
+	}
+
+	if (groundEnemy != nullptr)
+	{
+		delete groundEnemy;
+		groundEnemy = nullptr;
 	}
 }
 
 void Update()
 {
-	lower->Move();
+	groundEnemy->Move();
 	player->TakeInput();
-
+	bullet->Update(player->GetPosition());
+	if (bullet->GetStatus())
+	{
+		bullet->Move();
+	}
 	for (int i = 0; i < 8; i++)
 	{
 		backgroundImages[i]->Move();
@@ -109,7 +120,10 @@ void Draw()
 	DrawBackground();
 
 	player->Draw();
-	lower->Draw();
+	groundEnemy->Draw();
+
+	bullet->Draw();
+	
 
 	DrawGameVersion();
 	EndDrawing();

@@ -1,6 +1,6 @@
 #pragma once
 #include "raylib.h"
-#include "Bullet.h"
+//#include "Bullets.h"
 
 enum class InputType
 {
@@ -26,7 +26,7 @@ class Player
 
 private:
 	
-	Bullet bullets[20];
+	//Bullet bullets[20];
 
 	JumpSettings jumpSettings;
 	

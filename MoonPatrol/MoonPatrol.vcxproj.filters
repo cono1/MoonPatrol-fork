@@ -28,6 +28,9 @@
     <ClCompile Include="src\GameObjects\BackgroundImage.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameObjects\Bullets.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\System\GameLoop.h">
@@ -43,6 +46,9 @@
       <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="src\GameObjects\BackgroundImage.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObjects\Bullets.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
   </ItemGroup>

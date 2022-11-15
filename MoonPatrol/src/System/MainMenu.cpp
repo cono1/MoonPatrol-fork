@@ -2,7 +2,6 @@
 
 void StartWindow();
 
-
 void ShowMenu(MenuScreen& currentScreen);
 
 void ShowCredits(MenuScreen& currentScreen);
@@ -14,7 +13,6 @@ void DrawButtons(Rectangle playButton, Rectangle optionsButton, Rectangle credit
 void GameLoop();
 
 
-
 void StartProgram()
 {
 	StartWindow();
@@ -23,7 +21,6 @@ void StartProgram()
 
 	while (!WindowShouldClose())
 	{
-
 		switch (currentScreen)
 		{
 		case MenuScreen::MainMenu:
@@ -43,7 +40,6 @@ void StartProgram()
 		default:
 			break;
 		}
-
 	}
 }
 

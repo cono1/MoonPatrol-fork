@@ -159,6 +159,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\GameObjects\BackgroundImage.cpp" />
+    <ClCompile Include="src\GameObjects\Bullets.cpp" />
     <ClCompile Include="src\GameObjects\Enemy.cpp" />
     <ClCompile Include="src\GameObjects\Player.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -168,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameObjects\BackgroundImage.h" />
+    <ClInclude Include="src\GameObjects\Bullets.h" />
     <ClInclude Include="src\GameObjects\Enemy.h" />
     <ClInclude Include="src\GameObjects\Player.h" />
     <ClInclude Include="src\System\GameLoop.h" />
