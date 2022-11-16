@@ -20,7 +20,7 @@ public:
 	void Move();
 	void Draw();
 	void Update(Vector2 playerPos);
-	bool CheckCollision(Vector2 position, float radius);
+	bool CheckCollision();
 	bool GetStatus();
 	float GetRadius();
 	Vector2 GetPosition();

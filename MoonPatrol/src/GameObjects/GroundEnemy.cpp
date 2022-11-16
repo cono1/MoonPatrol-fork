@@ -7,7 +7,7 @@ extern Player* player;
 extern bool playing;
 int spawnOffset = 10;
 
-GroundEnemy::GroundEnemy(float radius, float damage, float speed) : Enemy()
+GroundEnemy::GroundEnemy(float radius, float damage, float speed) : Enemy(position, radius)
 {
 	this->radius = radius;
 	this->damage = damage;

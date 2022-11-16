@@ -6,7 +6,7 @@
 
 extern Bullet* bullet;
 
-AerealEnemy::AerealEnemy(float radius, Vector2 speed) : Enemy()
+AerealEnemy::AerealEnemy(float radius, Vector2 speed) : Enemy(position, radius)
 {
 	this->radius = radius;
 	this->speed = speed;
@@ -17,6 +17,11 @@ AerealEnemy::AerealEnemy(float radius, Vector2 speed) : Enemy()
 AerealEnemy::~AerealEnemy()
 {
 
+}
+
+float AerealEnemy::GetRadius()
+{
+	return this->radius;
 }
 
 void AerealEnemy::Move()

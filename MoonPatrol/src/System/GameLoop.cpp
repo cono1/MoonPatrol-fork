@@ -29,7 +29,7 @@ void InitialSetup()
 
 	player = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
 	groundEnemy = new GroundEnemy(GetScreenHeight() / 20.0f, 1, -200.0f);
-	aerealEnemy = new AerealEnemy(GetScreenHeight() / 20.0f, { 10, 100 });
+	aerealEnemy = new AerealEnemy(GetScreenHeight() / 20.0f, { 25, 250 });
 	bullet = new Bullet(player->GetPosition(), 1000, GetScreenHeight() / 80.0f, false);
 
 	groundEnemy->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
@@ -129,7 +129,7 @@ void UpdateScore()
 {
 	if (aerealEnemy->CheckCollision())
 	{
-		score += 100;
+		score += 10;
 	}
 }
 

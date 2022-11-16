@@ -3,9 +3,14 @@
 
 class Enemy
 {
+protected:
+	Vector2 position;
+	float radius;
 public:
-	Enemy();
+	Enemy(Vector2 position, float radius);
 	virtual ~Enemy();
+	Vector2 GetPosition();
+	float GetRadius();
 	virtual void Move() = 0;
 	virtual void ChangePosition(Vector2 newPosition) = 0;
 	virtual void CheckLimits() = 0;

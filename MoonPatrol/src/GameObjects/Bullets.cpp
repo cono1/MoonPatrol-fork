@@ -1,5 +1,12 @@
 #include "Bullets.h"
+
+#include <iostream>
+#include <cmath>
+
 #include "Player.h"
+#include "AerealEnemy.h"
+
+extern Enemy* aerealEnemy;
 
 Bullet::Bullet(Vector2 position, float speed, float radius, bool isAlive)//borrar isalive(?
 {
@@ -16,9 +23,7 @@ Bullet::~Bullet()
 
 void Bullet::Move()
 {
-
-		this->position.y -= speed * GetFrameTime();
-
+	this->position.y -= speed * GetFrameTime();
 }
 
 void Bullet::Draw()
@@ -28,6 +33,11 @@ void Bullet::Draw()
 
 void Bullet::Update(Vector2 playerPos)
 {
+	if (aerealEnemy->CheckCollision())
+	{
+		this->position.y -=  100;
+	} 
+
 	if (IsKeyPressed(KEY_ENTER) && !isAlive)
 	{
 		this->position = playerPos;
@@ -40,9 +50,22 @@ void Bullet::Update(Vector2 playerPos)
 	}
 }
 
-bool Bullet::CheckCollision(Vector2 position, float radius)
+bool Bullet::CheckCollision()
 {
-	return true;
+
+	double distX = static_cast<double>(this->position.x) - static_cast<double>(aerealEnemy->GetPosition().x);
+	double distY = static_cast<double>(this->position.y) - static_cast<double>(aerealEnemy->GetPosition().y);
+
+	float distance = sqrt((distX * distX) + (distY * distY));
+
+	if (distance <= aerealEnemy->GetRadius() + this->radius)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 bool Bullet::GetStatus()
