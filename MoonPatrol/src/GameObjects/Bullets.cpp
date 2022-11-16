@@ -1,12 +1,12 @@
 #include "Bullets.h"
 #include "Player.h"
 
-Bullet::Bullet(Vector2 position, float speed, float radius, bool isAlive)
+Bullet::Bullet(Vector2 position, float speed, float radius, bool isAlive)//borrar isalive(?
 {
 	this->position = position;
 	this->speed = speed;
 	this->radius = radius;
-	this->isAlive = isAlive;
+	this->isAlive = isAlive;//aca no(?
 }
 
 Bullet::~Bullet()

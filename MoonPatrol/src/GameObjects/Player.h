@@ -25,9 +25,6 @@ class Player
 {
 
 private:
-	
-	//Bullet bullets[20];
-
 	JumpSettings jumpSettings;
 	
 	Vector2 velocity;
@@ -38,7 +35,6 @@ private:
 	bool isGrounded;
 	float radius;
 	int health;
-	
 
 public:
 	Player(Vector2 position, float radius, int health);

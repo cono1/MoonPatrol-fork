@@ -3,19 +3,12 @@
 
 class Enemy
 {
-private:
-	Vector2 position;
-	float radius;
-	float damage;
-	float speed;
-
 public:
-	Enemy(float radius, float damage, float speed);
-
-	void Move();
-	void DealDamage();
-	void ChangePosition(Vector2 newPosition);
-	void CheckLimits();
-	bool CheckCollision();
-	void Draw();
+	Enemy();
+	virtual ~Enemy();
+	virtual void Move() = 0;
+	virtual void ChangePosition(Vector2 newPosition) = 0;
+	virtual void CheckLimits() = 0;
+	virtual bool CheckCollision() = 0;
+	virtual void Draw() = 0;
 };
