@@ -1,14 +1,18 @@
 #include "GameLoop.h"
 
+int score;
+
 void InitialSetup();
 void CreateBackgrounds();
 void SortBackgrounds();
 
 void Update();
+void UpdateScore();
 
 void Draw();
 void DrawBackground();
 void DrawGameVersion();
+void DrawScore();
 
 Player* player;
 Enemy* groundEnemy;
@@ -113,10 +117,19 @@ void Update()
 	player->TakeInput();
 	bullet->Update(player->GetPosition());
 	bullet->Move();
+	UpdateScore();
 	
 	for (int i = 0; i < 8; i++)
 	{
 		backgroundImages[i]->Move();
+	}
+}
+
+void UpdateScore()
+{
+	if (aerealEnemy->CheckCollision())
+	{
+		score += 100;
 	}
 }
 
@@ -136,6 +149,7 @@ void Draw()
 		bullet->Draw();
 	}
 	
+	DrawScore();
 
 	DrawGameVersion();
 	EndDrawing();
@@ -152,5 +166,10 @@ void DrawBackground()
 
 void DrawGameVersion()
 {
-	DrawText("Version: 0.2", 0, 0, 46, RAYWHITE);
+	DrawText("Version: 0.3", 0, 0, 46, RAYWHITE);
+}
+
+void DrawScore()
+{
+	DrawText(TextFormat("Score: %i ", score), GetScreenWidth() - 250, 0, 46, WHITE);
 }
