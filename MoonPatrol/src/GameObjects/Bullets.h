@@ -22,8 +22,8 @@ public:
 	void Update(Vector2 playerPos);
 	bool CheckCollision(Vector2 position, float radius);
 	bool GetStatus();
-	//void ChangeSpeed(Vector2 speed);
-	//int GetDamage();
+	float GetRadius();
+	Vector2 GetPosition();
 };
 
 

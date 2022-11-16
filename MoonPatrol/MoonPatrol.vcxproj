@@ -158,6 +158,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\GameObjects\AerealEnemy.cpp" />
     <ClCompile Include="src\GameObjects\BackgroundImage.cpp" />
     <ClCompile Include="src\GameObjects\Bullets.cpp" />
     <ClCompile Include="src\GameObjects\Enemy.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="src\System\GameLoop.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\GameObjects\AerealEnemy.h" />
     <ClInclude Include="src\GameObjects\BackgroundImage.h" />
     <ClInclude Include="src\GameObjects\Bullets.h" />
     <ClInclude Include="src\GameObjects\Enemy.h" />

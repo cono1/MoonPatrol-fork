@@ -53,3 +53,13 @@ bool Bullet::GetStatus()
 	}
 	return isAlive;
 }
+
+float Bullet::GetRadius()
+{
+	return this->radius;
+}
+
+Vector2 Bullet::GetPosition()
+{
+	return this->position;
+}

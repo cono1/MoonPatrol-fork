@@ -12,6 +12,7 @@ void DrawGameVersion();
 
 Player* player;
 Enemy* groundEnemy;
+Enemy* aerealEnemy;
 Bullet* bullet;
 
 BackgroundImage* backgroundImages[8];
@@ -24,9 +25,11 @@ void InitialSetup()
 
 	player = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
 	groundEnemy = new GroundEnemy(GetScreenHeight() / 20.0f, 1, -200.0f);
+	aerealEnemy = new AerealEnemy(GetScreenHeight() / 20.0f, { 10, 100 });
 	bullet = new Bullet(player->GetPosition(), 1000, GetScreenHeight() / 80.0f, false);
 
 	groundEnemy->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
+	aerealEnemy->ChangePosition({ static_cast<float>(GetScreenWidth() / 6), GetScreenHeight() / 4.0f });
 
 	CreateBackgrounds();
 
@@ -95,14 +98,20 @@ void GameLoop()
 		delete groundEnemy;
 		groundEnemy = nullptr;
 	}
+
+	if (aerealEnemy != nullptr)
+	{
+		delete aerealEnemy;
+		aerealEnemy = nullptr;
+	}
 }
 
 void Update()
 {
 	groundEnemy->Move();
+	aerealEnemy->Move();
 	player->TakeInput();
 	bullet->Update(player->GetPosition());
-
 	bullet->Move();
 	
 	for (int i = 0; i < 8; i++)
@@ -120,6 +129,7 @@ void Draw()
 
 	player->Draw();
 	groundEnemy->Draw();
+	aerealEnemy->Draw();
 
 	if (bullet->GetStatus())
 	{

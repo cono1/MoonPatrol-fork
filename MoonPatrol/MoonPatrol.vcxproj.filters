@@ -34,6 +34,9 @@
     <ClCompile Include="src\GameObjects\GroundEnemy.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameObjects\AerealEnemy.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\System\GameLoop.h">
@@ -55,6 +58,9 @@
       <Filter>GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="src\GameObjects\GroundEnemy.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObjects\AerealEnemy.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
   </ItemGroup>

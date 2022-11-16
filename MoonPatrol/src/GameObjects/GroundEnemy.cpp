@@ -21,11 +21,6 @@ GroundEnemy::~GroundEnemy()
 
 }
 
-void GroundEnemy::ChangePosition(Vector2 newPosition)
-{
-	this->position = newPosition;
-}
-
 void GroundEnemy::Move()
 {
 	this->CheckLimits();
@@ -40,6 +35,11 @@ void GroundEnemy::Move()
 	{
 		playing = false;
 	}
+}
+
+void GroundEnemy::ChangePosition(Vector2 newPosition)
+{
+	this->position = newPosition;
 }
 
 void GroundEnemy::CheckLimits()
