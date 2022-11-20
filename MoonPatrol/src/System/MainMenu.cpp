@@ -28,14 +28,16 @@ void StartProgram()
 			break;
 		case MenuScreen::Play:
 			GameLoop();
-			currentScreen = MenuScreen::MainMenu;
+			if(IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
+			currentScreen = MenuScreen::Quit;
 			break;
-		case MenuScreen::Options:
+		case MenuScreen::Options: 
 			break;
 		case MenuScreen::Credits:
 			ShowCredits(currentScreen);
 			break;
 		case MenuScreen::Quit:
+			CloseWindow();
 			break;
 		default:
 			break;

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "GameLoop.h"
 
 int score;
@@ -13,6 +14,7 @@ void Draw();
 void DrawBackground();
 void DrawGameVersion();
 void DrawScore();
+void ShowLoseScreen();
 
 Player* player;
 Enemy* groundEnemy;
@@ -26,11 +28,11 @@ bool playing = true;
 void InitialSetup()
 {
 	playing = true;
-
+	score = 0;
 	player = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
 	groundEnemy = new GroundEnemy(GetScreenHeight() / 20.0f, 1, -200.0f);
 	aerealEnemy = new AerealEnemy(GetScreenHeight() / 20.0f, { 25, 250 });
-	bullet = new Bullet(player->GetPosition(), 1000, GetScreenHeight() / 80.0f, false);
+	bullet = new Bullet(player->GetPosition(), 1000, GetScreenHeight() / 80.0f);
 
 	groundEnemy->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
 	aerealEnemy->ChangePosition({ static_cast<float>(GetScreenWidth() / 6), GetScreenHeight() / 4.0f });
@@ -85,6 +87,21 @@ void GameLoop()
 		Draw();
 	}
 
+	while(!playing)
+	{
+		ShowLoseScreen();
+		if (IsKeyPressed(KEY_ENTER))
+		{		
+			InitialSetup();
+			playing = true;
+		}
+		
+		if(IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
+		{		
+			CloseWindow();
+		}
+	}
+
 	if (player != nullptr)
 	{
 		delete player;
@@ -137,7 +154,6 @@ void Draw()
 {
 	BeginDrawing();
 	ClearBackground(BLACK);
-
 	DrawBackground();
 
 	player->Draw();
@@ -173,3 +189,16 @@ void DrawScore()
 {
 	DrawText(TextFormat("Score: %i ", score), GetScreenWidth() - 250, 0, 46, WHITE);
 }
+
+void ShowLoseScreen()
+{
+	BeginDrawing();
+	ClearBackground(BLACK);
+	DrawBackground();
+	DrawText("You lost", GetScreenWidth() / 4, GetScreenHeight() / 4, 100, WHITE);
+	DrawText(TextFormat("Your score was: %i ", score), GetScreenWidth() / 6, GetScreenHeight() / 2, 80, WHITE);
+	DrawText("Press enter to play again", GetScreenWidth() / 4, GetScreenHeight() - 110, 40, WHITE);
+	DrawText("Press esc to close game", GetScreenWidth() / 4, GetScreenHeight() - 70, 40, WHITE);
+	EndDrawing();
+}
+

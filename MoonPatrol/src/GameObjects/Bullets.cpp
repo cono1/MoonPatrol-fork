@@ -8,12 +8,12 @@
 
 extern Enemy* aerealEnemy;
 
-Bullet::Bullet(Vector2 position, float speed, float radius, bool isAlive)//borrar isalive(?
+Bullet::Bullet(Vector2 position, float speed, float radius)
 {
 	this->position = position;
 	this->speed = speed;
 	this->radius = radius;
-	this->isAlive = isAlive;//aca no(?
+
 }
 
 Bullet::~Bullet()

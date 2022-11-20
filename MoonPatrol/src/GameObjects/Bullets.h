@@ -14,7 +14,7 @@ protected:
 	bool isAlive;
 
 public:
-	Bullet(Vector2 position, float speed, float radius, bool isAlive);
+	Bullet(Vector2 position, float speed, float radius);
 	~Bullet();
 
 	void Move();
