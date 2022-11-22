@@ -5,6 +5,7 @@ void StartWindow();
 void ShowMenu(MenuScreen& currentScreen);
 
 void ShowCredits(MenuScreen& currentScreen);
+void ShowOptions(MenuScreen& currentScreen);
 
 void DrawMenu(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton);
 void DrawTitle(const char* text);
@@ -28,10 +29,10 @@ void StartProgram()
 			break;
 		case MenuScreen::Play:
 			GameLoop();
-			if(IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
-			currentScreen = MenuScreen::Quit;
+			currentScreen = MenuScreen::MainMenu;
 			break;
 		case MenuScreen::Options: 
+			ShowOptions(currentScreen);
 			break;
 		case MenuScreen::Credits:
 			ShowCredits(currentScreen);
@@ -47,18 +48,21 @@ void StartProgram()
 
 void ShowMenu(MenuScreen& currentScreen)
 {
-	Rectangle playButton{ GetScreenWidth() / 4 - GetScreenWidth() / 4 / 2,
-		GetScreenHeight() / 2 + 20,
-		GetScreenWidth() / 4,
-		GetScreenHeight() / 12 };
+	Rectangle playButton{ static_cast<float>(GetScreenWidth() / 4 - GetScreenWidth() / 4 / 2),
+		static_cast<float> (GetScreenHeight() / 2 + 20),
+		static_cast<float> (GetScreenWidth() / 4),
+		static_cast<float> (GetScreenHeight() / 12) };
 
-	Rectangle optionsButton{ 0,0,0,0};
+	Rectangle optionsButton{ static_cast<float>(GetScreenWidth() - GetScreenWidth() / 4 - GetScreenWidth() / 4 / 2),
+		static_cast<float> (GetScreenHeight() / 2 + 20),
+		static_cast<float> (GetScreenWidth() / 4),
+		static_cast<float> (GetScreenHeight() / 12) };
 
-	Rectangle creditsButton{ GetScreenWidth() - GetScreenWidth() / 4 - GetScreenWidth() / 4 / 2,
-		GetScreenHeight() / 2 + 20,
-		GetScreenWidth() / 4,
-		GetScreenHeight() / 12 };
-	
+	Rectangle creditsButton{ static_cast<float> (GetScreenWidth() / 2 - GetScreenWidth() / 4 / 2),
+		static_cast<float> (GetScreenHeight() / 2 + 150),
+		static_cast<float> (GetScreenWidth() / 4),
+		static_cast<float> (GetScreenHeight() / 12)};
+
 	Rectangle quitButton{ 0,0,0,0 };
 
 	if (CheckButton(playButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
@@ -67,7 +71,7 @@ void ShowMenu(MenuScreen& currentScreen)
 	}
 	else if (CheckButton(optionsButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 	{
-
+		currentScreen = MenuScreen::Options;
 	}
 	else if (CheckButton(creditsButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 	{
@@ -109,18 +113,22 @@ void DrawMenu(Rectangle playButton, Rectangle optionsButton, Rectangle creditsBu
 
 void DrawTitle(const char* text)
 {
-	DrawText(text, GetScreenWidth() / 2.0f - MeasureText(text, 46) / 2, GetScreenHeight() / 7.0f, 48, RAYWHITE);
+	DrawText(text, static_cast<int> (GetScreenWidth() / 2.0f - MeasureText(text, 46) / 2), static_cast<int> (GetScreenHeight() / 7.0f), 48, RAYWHITE);
 }
 
 void DrawButtons(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton)
 {
 	DrawRectangleRec(playButton, RAYWHITE);
 	Vector2 playMeasure = MeasureTextEx(GetFontDefault(), "PLAY", 36, 0);
-	DrawText("PLAY", playButton.x + playButton.width / 2 - playMeasure.x / 2, playButton.y + playButton.height / 2 - playMeasure.y / 2, 36, BLACK);
-	//DrawRectangleRec(optionsButton, RAYWHITE);
-	Vector2 creditsMeasure = MeasureTextEx(GetFontDefault(), "CREDITS", 36, 0);
+	DrawText("PLAY", static_cast<int> (playButton.x + playButton.width / 2 - playMeasure.x / 2), static_cast<int> (playButton.y + playButton.height / 2 - playMeasure.y / 2), 36, BLACK);
+	
+	DrawRectangleRec(optionsButton, RAYWHITE);
+	Vector2 optionsMeasure = MeasureTextEx(GetFontDefault(), "OPTIONS", 36, 0);
+	DrawText("OPTIONS", static_cast<int> (optionsButton.x + optionsButton.width / 2 - optionsMeasure.x / 2), static_cast<int> (optionsButton.y + optionsButton.height / 2 - optionsMeasure.y / 2), 36, BLACK);
+
 	DrawRectangleRec(creditsButton, RAYWHITE);
-	DrawText("CREDITS", creditsButton.x + creditsButton.width / 2 - creditsMeasure.x / 2, creditsButton.y + creditsButton.height / 2 - creditsMeasure.y / 2, 36, BLACK);
+	Vector2 creditsMeasure = MeasureTextEx(GetFontDefault(), "CREDITS", 36, 0);
+	DrawText("CREDITS", static_cast<int> (creditsButton.x + creditsButton.width / 2 - creditsMeasure.x / 2), static_cast<int> (creditsButton.y + creditsButton.height / 2 - creditsMeasure.y / 2), 36, BLACK);
 	//DrawRectangleRec(quitButton, RAYWHITE);
 }
 

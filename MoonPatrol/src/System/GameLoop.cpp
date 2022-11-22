@@ -201,4 +201,3 @@ void ShowLoseScreen()
 	DrawText("Press esc to close game", GetScreenWidth() / 4, GetScreenHeight() - 70, 40, WHITE);
 	EndDrawing();
 }
-
