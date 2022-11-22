@@ -3,7 +3,7 @@
 #include "Enemy.h"
 #include "raymath.h"
 
-extern Player* player;
+extern Player* firstPlayer;
 extern bool playing;
 int spawnOffset = 10;
 
@@ -52,12 +52,12 @@ void GroundEnemy::CheckLimits()
 
 bool GroundEnemy::CheckCollision()
 {
-	double distX = static_cast<double>(player->GetPosition().x) - static_cast<double>(this->position.x);
-	double distY = static_cast<double>(player->GetPosition().y) - static_cast<double>(this->position.y);
+	double distX = static_cast<double>(firstPlayer->GetPosition().x) - static_cast<double>(this->position.x);
+	double distY = static_cast<double>(firstPlayer->GetPosition().y) - static_cast<double>(this->position.y);
 
 	float distance = sqrt((distX * distX) + (distY * distY));
 
-	if (distance <= player->GetRadius() + this->radius)
+	if (distance <= firstPlayer->GetRadius() + this->radius)
 	{
 		return true;
 	}

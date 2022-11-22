@@ -5,13 +5,13 @@ void StartWindow();
 void ShowMenu(MenuScreen& currentScreen);
 
 void ShowCredits(MenuScreen& currentScreen);
-void ShowOptions(MenuScreen& currentScreen);
+void ShowOptions(MenuScreen& currentScreen, bool& onePlayer);
 
 void DrawMenu(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton);
 void DrawTitle(const char* text);
 void DrawButtons(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton);
 
-void GameLoop();
+void GameLoop(bool onePlayer);
 
 
 void StartProgram()
@@ -19,6 +19,7 @@ void StartProgram()
 	StartWindow();
 
 	MenuScreen currentScreen = MenuScreen::MainMenu;
+	bool onePlayer = false;
 
 	while (!WindowShouldClose())
 	{
@@ -28,11 +29,11 @@ void StartProgram()
 			ShowMenu(currentScreen);
 			break;
 		case MenuScreen::Play:
-			GameLoop();
+			GameLoop(onePlayer);
 			currentScreen = MenuScreen::MainMenu;
 			break;
 		case MenuScreen::Options: 
-			ShowOptions(currentScreen);
+			ShowOptions(currentScreen, onePlayer);
 			break;
 		case MenuScreen::Credits:
 			ShowCredits(currentScreen);

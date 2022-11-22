@@ -7,16 +7,17 @@ void InitialSetup();
 void CreateBackgrounds();
 void SortBackgrounds();
 
-void Update();
+void Update(bool onePlayer);
 void UpdateScore();
 
-void Draw();
+void Draw(bool onePlayer);
 void DrawBackground();
 void DrawGameVersion();
 void DrawScore();
 void ShowLoseScreen();
 
-Player* player;
+Player* firstPlayer;
+Player* secondPlayer;
 Enemy* groundEnemy;
 Enemy* aerealEnemy;
 Bullet* bullet;
@@ -29,10 +30,11 @@ void InitialSetup()
 {
 	playing = true;
 	score = 0;
-	player = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
+	firstPlayer = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
+	secondPlayer = new Player({ GetScreenWidth() / 4.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
 	groundEnemy = new GroundEnemy(GetScreenHeight() / 20.0f, 1, -200.0f);
 	aerealEnemy = new AerealEnemy(GetScreenHeight() / 20.0f, { 25, 250 });
-	bullet = new Bullet(player->GetPosition(), 1000, GetScreenHeight() / 80.0f);
+	bullet = new Bullet(firstPlayer->GetPosition(), 1000, GetScreenHeight() / 80.0f);
 
 	groundEnemy->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
 	aerealEnemy->ChangePosition({ static_cast<float>(GetScreenWidth() / 6), GetScreenHeight() / 4.0f });
@@ -77,35 +79,42 @@ void SortBackgrounds()
 	}
 }
 
-void GameLoop()
+void GameLoop(bool onePlayer)
 {
 	InitialSetup();
 
 	while (!WindowShouldClose() && playing)
 	{
-		Update();
-		Draw();
+		Update(onePlayer);
+		Draw(onePlayer);
 	}
 
-	while(!playing)
+	while (!playing)
 	{
 		ShowLoseScreen();
 		if (IsKeyPressed(KEY_ENTER))
-		{		
+		{
 			InitialSetup();
 			playing = true;
 		}
-		
-		if(IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
-		{		
+
+		if (IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
+		{
 			CloseWindow();
 		}
 	}
+	
 
-	if (player != nullptr)
+	if (firstPlayer != nullptr)
 	{
-		delete player;
-		player = nullptr;
+		delete firstPlayer;
+		firstPlayer = nullptr;
+	}
+
+	if (secondPlayer != nullptr)
+	{
+		delete firstPlayer;
+		firstPlayer = nullptr;
 	}
 
 	if (bullet != nullptr)
@@ -127,12 +136,17 @@ void GameLoop()
 	}
 }
 
-void Update()
+void Update(bool onePlayer)
 {
+	if (!onePlayer)
+	{
+		secondPlayer->TakeInput();
+	}
+
+	firstPlayer->TakeInput();
 	groundEnemy->Move();
 	aerealEnemy->Move();
-	player->TakeInput();
-	bullet->Update(player->GetPosition());
+	bullet->Update(firstPlayer->GetPosition());
 	bullet->Move();
 	UpdateScore();
 	
@@ -150,13 +164,17 @@ void UpdateScore()
 	}
 }
 
-void Draw()
+void Draw(bool onePlayer)
 {
 	BeginDrawing();
 	ClearBackground(BLACK);
 	DrawBackground();
 
-	player->Draw();
+	if (!onePlayer)
+	{
+		secondPlayer->Draw();
+	}
+	firstPlayer->Draw();
 	groundEnemy->Draw();
 	aerealEnemy->Draw();
 
