@@ -19,7 +19,7 @@ void StartProgram()
 	StartWindow();
 
 	MenuScreen currentScreen = MenuScreen::MainMenu;
-	bool onePlayer = false;
+	bool onePlayer = true;
 
 	while (!WindowShouldClose())
 	{

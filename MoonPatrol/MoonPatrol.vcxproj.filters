@@ -40,6 +40,12 @@
     <ClCompile Include="src\System\OptionsMenu.cpp">
       <Filter>System</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameObjects\FirstPlayer.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObjects\SecondPlayer.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\System\GameLoop.h">
@@ -64,6 +70,12 @@
       <Filter>GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="src\GameObjects\AerealEnemy.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObjects\FirstPlayer.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObjects\SecondPlayer.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
   </ItemGroup>

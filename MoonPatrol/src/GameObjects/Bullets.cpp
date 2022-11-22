@@ -56,7 +56,7 @@ bool Bullet::CheckCollision()
 	double distX = static_cast<double>(this->position.x) - static_cast<double>(aerealEnemy->GetPosition().x);
 	double distY = static_cast<double>(this->position.y) - static_cast<double>(aerealEnemy->GetPosition().y);
 
-	float distance = sqrt((distX * distX) + (distY * distY));
+	float distance = static_cast<float>(sqrt((distX * distX) + (distY * distY)));
 
 	if (distance <= aerealEnemy->GetRadius() + this->radius)
 	{

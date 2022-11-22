@@ -162,8 +162,10 @@
     <ClCompile Include="src\GameObjects\BackgroundImage.cpp" />
     <ClCompile Include="src\GameObjects\Bullets.cpp" />
     <ClCompile Include="src\GameObjects\Enemy.cpp" />
+    <ClCompile Include="src\GameObjects\FirstPlayer.cpp" />
     <ClCompile Include="src\GameObjects\GroundEnemy.cpp" />
     <ClCompile Include="src\GameObjects\Player.cpp" />
+    <ClCompile Include="src\GameObjects\SecondPlayer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\System\CreditsMenu.cpp" />
     <ClCompile Include="src\System\MainMenu.cpp" />
@@ -175,8 +177,10 @@
     <ClInclude Include="src\GameObjects\BackgroundImage.h" />
     <ClInclude Include="src\GameObjects\Bullets.h" />
     <ClInclude Include="src\GameObjects\Enemy.h" />
+    <ClInclude Include="src\GameObjects\FirstPlayer.h" />
     <ClInclude Include="src\GameObjects\GroundEnemy.h" />
     <ClInclude Include="src\GameObjects\Player.h" />
+    <ClInclude Include="src\GameObjects\SecondPlayer.h" />
     <ClInclude Include="src\System\GameLoop.h" />
     <ClInclude Include="src\System\MainMenu.h" />
   </ItemGroup>

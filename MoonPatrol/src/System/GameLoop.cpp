@@ -30,8 +30,8 @@ void InitialSetup()
 {
 	playing = true;
 	score = 0;
-	firstPlayer = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
-	secondPlayer = new Player({ GetScreenWidth() / 4.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
+	firstPlayer = new FirstPlayer({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
+	secondPlayer = new SecondPlayer({ GetScreenWidth() / 4.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
 	groundEnemy = new GroundEnemy(GetScreenHeight() / 20.0f, 1, -200.0f);
 	aerealEnemy = new AerealEnemy(GetScreenHeight() / 20.0f, { 25, 250 });
 	bullet = new Bullet(firstPlayer->GetPosition(), 1000, GetScreenHeight() / 80.0f);
@@ -46,11 +46,11 @@ void InitialSetup()
 
 void CreateBackgrounds()
 {
-	Rectangle layer0Body = { 0,0, GetScreenWidth(), GetScreenHeight() };
-	Rectangle layer1Body = { 0, 0 - GetScreenHeight() / 8, GetScreenWidth(), GetScreenHeight() };
+	Rectangle layer0Body = { 0,0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+	Rectangle layer1Body = { 0, static_cast < float>(0 - GetScreenHeight() / 8), static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
 
-	Rectangle layer0BodyOutOfScren = { GetScreenWidth(),0, GetScreenWidth(), GetScreenHeight() };
-	Rectangle layer1BodyOutOfScren = { GetScreenWidth(), 0 - GetScreenHeight() / 8, GetScreenWidth(), GetScreenHeight() };
+	Rectangle layer0BodyOutOfScren = { static_cast<float>(GetScreenWidth()),0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+	Rectangle layer1BodyOutOfScren = { static_cast<float>(GetScreenWidth()), static_cast < float>(0 - GetScreenHeight() / 8), static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
 
 	backgroundImages[0] = new BackgroundImage(LoadTexture("textures/forest-back0.png"), RAYWHITE, 0, layer0Body);
 	backgroundImages[1] = new BackgroundImage(LoadTexture("textures/forest-light1.png"), RAYWHITE, 1, layer1Body);
@@ -104,7 +104,6 @@ void GameLoop(bool onePlayer)
 		}
 	}
 	
-
 	if (firstPlayer != nullptr)
 	{
 		delete firstPlayer;
