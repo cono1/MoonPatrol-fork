@@ -20,7 +20,8 @@ void ShowCredits(MenuScreen& currentScreen)
 	DrawTitle("CREDITS");
 
 	DrawText("MADE BY", GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(),"MADE BY", 36, 0).x / 2, GetScreenHeight() / 2 - GetScreenHeight() / 5, 36, RAYWHITE);
-	DrawText("IAN KUZNICKI", GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(),"IAN KUZNICKI", 36, 0).x / 2, GetScreenHeight() / 2 - GetScreenHeight() / 8, 36, RAYWHITE);
+	DrawText("IAN KUZNICKI", GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(), "IAN KUZNICKI", 36, 0).x / 2, GetScreenHeight() / 2 - GetScreenHeight() / 8, 36, RAYWHITE);
+	DrawText("DANIELA GONZALEZ", GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(),"DANIELA GONZALEZ", 36, 0).x / 2, GetScreenHeight() / 2 - GetScreenHeight() / 14, 36, RAYWHITE);
 
 	DrawRectangleRec(backButton, RAYWHITE);
 	
