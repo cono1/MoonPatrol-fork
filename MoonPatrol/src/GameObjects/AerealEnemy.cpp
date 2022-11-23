@@ -46,7 +46,7 @@ void AerealEnemy::CheckLimits()
 	}
 }
 
-bool AerealEnemy::CheckCollision()
+bool AerealEnemy::CheckCollision(Player* player)
 {
 	double distX = static_cast<double>(bullet->GetPosition().x) - static_cast<double>(this->position.x);
 	double distY = static_cast<double>(bullet->GetPosition().y) - static_cast<double>(this->position.y);

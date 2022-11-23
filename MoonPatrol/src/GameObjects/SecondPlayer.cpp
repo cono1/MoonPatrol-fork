@@ -24,26 +24,12 @@ SecondPlayer::~SecondPlayer()
 
 void SecondPlayer::TakeInput()
 {
-	InputType inputRecieved;
-
-	inputRecieved = static_cast<InputType>(GetKeyPressed());
-
-	switch (inputRecieved)
+	if (IsKeyPressed(static_cast<int>((InputType)(InputType::JumpArrow))))
 	{
-	case InputType::JumpArrow:
 		if (this->jumpSettings.maxJump > 0)
 		{
 			this->Jump();
 		}
-		break;
-	case InputType::Pause:
-		break;
-	case InputType::Quit:
-		break;
-	case InputType::Attack:
-		break;
-	default:
-		break;
 	}
 
 	this->Move();

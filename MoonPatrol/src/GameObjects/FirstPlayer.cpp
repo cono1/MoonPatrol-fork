@@ -24,26 +24,12 @@ FirstPlayer::~FirstPlayer()
 
 void FirstPlayer::TakeInput()
 {
-	InputType inputRecieved;
-
-	inputRecieved = static_cast<InputType>(GetKeyPressed());
-
-	switch (inputRecieved)
+	if (IsKeyPressed(static_cast<int>((InputType)(InputType::JumpSpace))))
 	{
-	case InputType::JumpSpace:
 		if (this->jumpSettings.maxJump > 0)
 		{
 			this->Jump();
 		}
-		break;
-	case InputType::Pause:
-		break;
-	case InputType::Quit:
-		break;
-	case InputType::Attack:
-		break;
-	default:
-		break;
 	}
 
 	this->Move();

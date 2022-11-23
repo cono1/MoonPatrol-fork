@@ -4,6 +4,7 @@
 #include "raymath.h"
 
 extern Player* firstPlayer;
+extern Player* secondPlayer;
 extern bool playing;
 int spawnOffset = 10;
 
@@ -31,7 +32,12 @@ void GroundEnemy::Move()
 
 	this->position = newPos;
 
-	if (CheckCollision())
+	if (CheckCollision(firstPlayer))
+	{
+		playing = false;
+	}
+
+	if (CheckCollision(secondPlayer))
 	{
 		playing = false;
 	}
@@ -50,14 +56,14 @@ void GroundEnemy::CheckLimits()
 	}
 }
 
-bool GroundEnemy::CheckCollision()
+bool GroundEnemy::CheckCollision(Player* player)
 {
-	double distX = static_cast<double>(firstPlayer->GetPosition().x) - static_cast<double>(this->position.x);
-	double distY = static_cast<double>(firstPlayer->GetPosition().y) - static_cast<double>(this->position.y);
+	double distX = static_cast<double>(player->GetPosition().x) - static_cast<double>(this->position.x);
+	double distY = static_cast<double>(player->GetPosition().y) - static_cast<double>(this->position.y);
 
 	float distance = sqrt((distX * distX) + (distY * distY));
 
-	if (distance <= firstPlayer->GetRadius() + this->radius)
+	if (distance <= player->GetRadius() + this->radius)
 	{
 		return true;
 	}

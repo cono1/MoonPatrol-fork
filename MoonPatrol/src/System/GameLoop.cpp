@@ -157,7 +157,7 @@ void Update(bool onePlayer)
 
 void UpdateScore()
 {
-	if (aerealEnemy->CheckCollision())
+	if (aerealEnemy->CheckCollision(firstPlayer))
 	{
 		score += 10;
 	}

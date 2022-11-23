@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+#include "Player.h"
 
 class Enemy
 {
@@ -14,6 +15,6 @@ public:
 	virtual void Move() = 0;
 	virtual void ChangePosition(Vector2 newPosition) = 0;
 	virtual void CheckLimits() = 0;
-	virtual bool CheckCollision() = 0;
+	virtual bool CheckCollision(Player* player) = 0;
 	virtual void Draw() = 0;
 };

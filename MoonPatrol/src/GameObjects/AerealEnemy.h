@@ -15,6 +15,6 @@ public:
 	void Move() override;
 	void ChangePosition(Vector2 newPosition) override;
 	void CheckLimits() override;
-	bool CheckCollision() override;
+	bool CheckCollision(Player* player) override;
 	void Draw() override;
 };

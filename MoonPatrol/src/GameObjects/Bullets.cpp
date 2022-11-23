@@ -7,6 +7,7 @@
 #include "AerealEnemy.h"
 
 extern Enemy* aerealEnemy;
+extern Player* firstPlayer;
 
 Bullet::Bullet(Vector2 position, float speed, float radius)
 {
@@ -33,7 +34,7 @@ void Bullet::Draw()
 
 void Bullet::Update(Vector2 playerPos)
 {
-	if (aerealEnemy->CheckCollision())
+	if (aerealEnemy->CheckCollision(firstPlayer))
 	{
 		this->position.y -=  100;
 	} 
@@ -52,7 +53,6 @@ void Bullet::Update(Vector2 playerPos)
 
 bool Bullet::CheckCollision()
 {
-
 	double distX = static_cast<double>(this->position.x) - static_cast<double>(aerealEnemy->GetPosition().x);
 	double distY = static_cast<double>(this->position.y) - static_cast<double>(aerealEnemy->GetPosition().y);
 
