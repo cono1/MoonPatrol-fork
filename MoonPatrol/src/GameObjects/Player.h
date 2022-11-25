@@ -1,9 +1,11 @@
 #pragma once
 #include "raylib.h"
+#include "Bullets.h"
+
 
 enum class InputType
 {
-	JumpSpace = KEY_SPACE,
+	JumpW = KEY_W,
 	JumpArrow = KEY_UP,
 	Pause = KEY_P,
 	Quit = KEY_Q,
@@ -23,18 +25,20 @@ struct JumpSettings
 
 class Player
 {
-
-private:
-	//JumpSettings jumpSettings;
+protected:
+	JumpSettings jumpSettings;
 	
-	//Vector2 velocity;
+	Vector2 velocity;
 	Vector2 position;
-
-	//bool isDead;
-	//bool ascending;
-	//bool isGrounded;
+	
+	bool isDead;
+	bool ascending;
+	bool isGrounded;
 	float radius;
 	int health;
+	Color color;
+
+	Bullet* bullet;
 
 public:
 	Player(Vector2 position, float radius, int health);
@@ -44,24 +48,24 @@ public:
 	virtual void TakeInput() = 0;
 	
 	//Simple update
-	virtual void Move() = 0;
+	void Move();
 
 	//Game flow functions
-	virtual void Damage(int damage)=0;
+	void Damage(int damage);
 
 	//GameSetup functions
 	 void ChangePosition(Vector2 position);
 
 	//Jump functions
-	virtual void Jump()=0;
-	virtual void HandleGravity()=0;
-	virtual bool CheckFloor()=0;
+	void Jump();
+	void HandleGravity();
+	bool CheckFloor();
 	
 	//Drawing functions
-	virtual void Draw()=0;
+	void Draw();
 
 	//Getters
-	virtual Vector2 GetPosition()=0;
+	Vector2 GetPosition();
 	float GetRadius();
 
 };

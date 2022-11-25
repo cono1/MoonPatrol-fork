@@ -21,7 +21,7 @@ Player* firstPlayer;
 Player* secondPlayer;
 Enemy* groundEnemy;
 Enemy* aerealEnemy;
-Bullet* bullet[maxBullets];
+//Bullet* bullet[maxBullets];
 
 BackgroundImage* backgroundImages[8];
 
@@ -35,10 +35,10 @@ void InitialSetup()
 	secondPlayer = new SecondPlayer({ GetScreenWidth() / 4.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
 	groundEnemy = new GroundEnemy(GetScreenHeight() / 20.0f, 1, -200.0f);
 	aerealEnemy = new AerealEnemy(GetScreenHeight() / 20.0f, { 25, 250 });
-	for (int i = 0; i < maxBullets; i++)
-	{
-		bullet[i] = new Bullet(firstPlayer->GetPosition(), 1000, GetScreenHeight() / 80.0f);
-	}
+	//for (int i = 0; i < maxBullets; i++)
+	//{
+	//	bullet[i] = new Bullet(firstPlayer->GetPosition(), 1000, GetScreenHeight() / 80.0f);
+	//}
 
 	groundEnemy->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
 	aerealEnemy->ChangePosition({ static_cast<float>(GetScreenWidth() / 6), GetScreenHeight() / 4.0f });
@@ -120,14 +120,14 @@ void GameLoop(bool onePlayer)
 		firstPlayer = nullptr;
 	}
 
-	for (int i = 0; i < maxBullets; i++)
-	{
-		if (bullet[i] != nullptr)
-		{
-			delete bullet[i];
-			bullet[i] = nullptr;
-		}
-	}
+	//for (int i = 0; i < maxBullets; i++)
+	//{
+	//	if (bullet[i] != nullptr)
+	//	{
+	//		delete bullet[i];
+	//		bullet[i] = nullptr;
+	//	}
+	//}
 
 	if (groundEnemy != nullptr)
 	{
@@ -148,8 +148,8 @@ void Update(bool onePlayer)
 	{
 		secondPlayer->TakeInput();
 
-			bullet[1]->Update(secondPlayer->GetPosition());
-			bullet[1]->Move();
+			//bullet[1]->Update(secondPlayer->GetPosition());
+			//bullet[1]->Move();
 		if (groundEnemy->CheckCollision(secondPlayer))
 		{
 			playing = false;
@@ -161,8 +161,8 @@ void Update(bool onePlayer)
 	aerealEnemy->Move();
 	//if (IsKeyPressed(static_cast<int>((InputType)(InputType::Attack))))
 	//{
-		bullet[0]->Update(firstPlayer->GetPosition());
-		bullet[0]->Move();
+		//bullet[0]->Update(firstPlayer->GetPosition());
+		//bullet[0]->Move();
 	//}
 	UpdateScore();
 	
@@ -199,15 +199,15 @@ void Draw(bool onePlayer)
 	groundEnemy->Draw();
 	aerealEnemy->Draw();
 
-	if (bullet[0]->GetStatus())
-	{
-		bullet[0]->Draw();
-	}
+	//if (bullet[0]->GetStatus())
+	//{
+	//	bullet[0]->Draw();
+	//}
 
-	if (bullet[1]->GetStatus() && !onePlayer)
-	{
-		bullet[1]->Draw();
-	}
+	//if (bullet[1]->GetStatus() && !onePlayer)
+	//{
+	//	bullet[1]->Draw();
+	//}
 	
 	DrawScore();
 

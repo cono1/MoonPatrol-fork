@@ -31,16 +31,6 @@ void GroundEnemy::Move()
 	newPos = { this->position.x + speed * GetFrameTime(), this->position.y };
 
 	this->position = newPos;
-
-	if (CheckCollision(firstPlayer))
-	{
-		playing = false;
-	}
-
-	if (CheckCollision(secondPlayer))
-	{
-		playing = false;
-	}
 }
 
 void GroundEnemy::ChangePosition(Vector2 newPosition)
@@ -52,7 +42,7 @@ void GroundEnemy::CheckLimits()
 {
 	if (this->position.x <= 0)
 	{
-		this->position.x = GetScreenWidth() + spawnOffset;
+		this->position.x = static_cast<float>(GetScreenWidth() + spawnOffset);
 	}
 }
 
@@ -61,7 +51,7 @@ bool GroundEnemy::CheckCollision(Player* player)
 	double distX = static_cast<double>(player->GetPosition().x) - static_cast<double>(this->position.x);
 	double distY = static_cast<double>(player->GetPosition().y) - static_cast<double>(this->position.y);
 
-	float distance = sqrt((distX * distX) + (distY * distY));
+	float distance = static_cast<float>(sqrt((distX * distX) + (distY * distY)));
 
 	if (distance <= player->GetRadius() + this->radius)
 	{

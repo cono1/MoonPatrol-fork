@@ -14,7 +14,7 @@ Bullet::Bullet(Vector2 position, float speed, float radius)
 	this->position = position;
 	this->speed = speed;
 	this->radius = radius;
-
+	isAlive = false;
 }
 
 Bullet::~Bullet()
@@ -32,17 +32,18 @@ void Bullet::Draw()
 	DrawCircleV(this->position, this->radius, RAYWHITE);
 }
 
-void Bullet::Update(Vector2 playerPos)
+void Bullet::Update(Vector2 playerPos) //pasarle player* player (?
 {
+	if (!isAlive)
+	{
+		isAlive = true;
+	}
+	
+	this->position = playerPos;
+
 	if (aerealEnemy->CheckCollision(firstPlayer))
 	{
-		this->position.y -=  100;
-	} 
-
-	if (IsKeyPressed(KEY_ENTER) && !isAlive)
-	{
-		this->position = playerPos;
-		isAlive = true;
+		this->position.y -= 100;
 	}
 
 	if (position.y < 0)
@@ -74,6 +75,11 @@ bool Bullet::GetStatus()
 	{
 		isAlive = true;
 	}
+	return isAlive;
+}
+
+bool Bullet::GetIsAlive()
+{
 	return isAlive;
 }
 
