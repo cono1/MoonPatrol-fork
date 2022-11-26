@@ -9,6 +9,6 @@ private:
 public:
 	FirstPlayer(Vector2 position, float radius, int health);
 	~FirstPlayer();
-
 	void TakeInput() override;
+	void Shoot() override;
 };

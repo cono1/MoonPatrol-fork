@@ -10,4 +10,5 @@ public:
 	SecondPlayer(Vector2 position, float radius, int health);
 	~SecondPlayer();
 	void TakeInput() override;
+	void Shoot() override;
 };

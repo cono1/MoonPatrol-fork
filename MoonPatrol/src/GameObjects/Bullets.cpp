@@ -24,29 +24,35 @@ Bullet::~Bullet()
 
 void Bullet::Move()
 {
-	this->position.y -= speed * GetFrameTime();
+	if (!isAlive)
+	{
+		return;
+	}
+	position.y -= speed * GetFrameTime();
 }
 
 void Bullet::Draw()
 {
-	DrawCircleV(this->position, this->radius, RAYWHITE);
+	//if (isAlive)
+	//{
+		DrawCircleV(this->position, radius, BLACK);
+	//}
 }
 
-void Bullet::Update(Vector2 playerPos) //pasarle player* player (?
+void Bullet::Update(Vector2 playerPos)
 {
-	if (!isAlive)
+	if (CheckCollision())
+	{
+		position.y -= 100;
+	}
+
+	if (IsKeyPressed(KEY_ENTER) && !isAlive)
 	{
 		isAlive = true;
-	}
-	
-	this->position = playerPos;
-
-	if (aerealEnemy->CheckCollision(firstPlayer))
-	{
-		this->position.y -= 100;
+		position = playerPos;
 	}
 
-	if (position.y < 0)
+	if (position.y <= 0)
 	{
 		isAlive = false;
 	}
@@ -57,11 +63,12 @@ bool Bullet::CheckCollision()
 	double distX = static_cast<double>(this->position.x) - static_cast<double>(aerealEnemy->GetPosition().x);
 	double distY = static_cast<double>(this->position.y) - static_cast<double>(aerealEnemy->GetPosition().y);
 
-	float distance = static_cast<float>(sqrt((distX * distX) + (distY * distY)));
+	double distance = (sqrt((distX * distX) + (distY * distY)));
 
 	if (distance <= aerealEnemy->GetRadius() + this->radius)
 	{
 		return true;
+		std::cout << "colision";
 	}
 	else
 	{
@@ -69,17 +76,12 @@ bool Bullet::CheckCollision()
 	}
 }
 
-bool Bullet::GetStatus()
-{
-	if (IsKeyPressed(KEY_ENTER))
-	{
-		isAlive = true;
-	}
-	return isAlive;
-}
-
 bool Bullet::GetIsAlive()
 {
+	//if (IsKeyPressed(KEY_ENTER))
+	//{
+	//	isAlive = true;
+	//}
 	return isAlive;
 }
 

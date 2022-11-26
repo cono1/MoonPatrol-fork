@@ -22,7 +22,7 @@ Player* secondPlayer;
 Enemy* groundEnemy;
 Enemy* aerealEnemy;
 //Bullet* bullet[maxBullets];
-
+//Bullet* bullet;
 BackgroundImage* backgroundImages[8];
 
 bool playing = true;
@@ -35,10 +35,7 @@ void InitialSetup()
 	secondPlayer = new SecondPlayer({ GetScreenWidth() / 4.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
 	groundEnemy = new GroundEnemy(GetScreenHeight() / 20.0f, 1, -200.0f);
 	aerealEnemy = new AerealEnemy(GetScreenHeight() / 20.0f, { 25, 250 });
-	//for (int i = 0; i < maxBullets; i++)
-	//{
-	//	bullet[i] = new Bullet(firstPlayer->GetPosition(), 1000, GetScreenHeight() / 80.0f);
-	//}
+	//bullet = new Bullet(firstPlayer->GetPosition(), 1000, GetScreenHeight() / 80.0f);
 
 	groundEnemy->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
 	aerealEnemy->ChangePosition({ static_cast<float>(GetScreenWidth() / 6), GetScreenHeight() / 4.0f });
@@ -148,8 +145,8 @@ void Update(bool onePlayer)
 	{
 		secondPlayer->TakeInput();
 
-			//bullet[1]->Update(secondPlayer->GetPosition());
-			//bullet[1]->Move();
+		/*bullet[1]->Update(secondPlayer->GetPosition());
+		bullet[1]->Move();*/
 		if (groundEnemy->CheckCollision(secondPlayer))
 		{
 			playing = false;
@@ -159,12 +156,13 @@ void Update(bool onePlayer)
 	firstPlayer->TakeInput();
 	groundEnemy->Move();
 	aerealEnemy->Move();
+
 	//if (IsKeyPressed(static_cast<int>((InputType)(InputType::Attack))))
 	//{
-		//bullet[0]->Update(firstPlayer->GetPosition());
-		//bullet[0]->Move();
+		//bullet->Update(firstPlayer->GetPosition());
+		//bullet->Move();
 	//}
-	UpdateScore();
+	//UpdateScore();
 	
 	for (int i = 0; i < 8; i++)
 	{
@@ -194,17 +192,16 @@ void Draw(bool onePlayer)
 	if (!onePlayer)
 	{
 		secondPlayer->Draw();
+		secondPlayer->Shoot();
 	}
+
 	firstPlayer->Draw();
+	firstPlayer->Shoot();
 	groundEnemy->Draw();
 	aerealEnemy->Draw();
 
-	//if (bullet[0]->GetStatus())
-	//{
-	//	bullet[0]->Draw();
-	//}
 
-	//if (bullet[1]->GetStatus() && !onePlayer)
+	//if (bullet[1]->GetIsAlive() && !onePlayer)
 	//{
 	//	bullet[1]->Draw();
 	//}

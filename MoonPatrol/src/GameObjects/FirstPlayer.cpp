@@ -7,11 +7,12 @@ FirstPlayer::FirstPlayer(Vector2 position, float radius, int health) : Player(po
 	this->radius = radius;
 	this->health = health;
 	this->color = WHITE;
+	this->bullet = new Bullet(position, 1000, GetScreenHeight()/80);
 }
 
 FirstPlayer::~FirstPlayer()
 {
-
+	delete bullet;
 }
 
 void FirstPlayer::TakeInput()
@@ -24,12 +25,17 @@ void FirstPlayer::TakeInput()
 		}
 	}
 
-	if (IsKeyPressed(static_cast<int>((InputType)(InputType::Attack))))
+	if (IsKeyPressed(static_cast<int>((InputType)(InputType::AttackEnter))))
 	{
-		//bullet->Update(this->GetPosition());
-	/*	bullet->Move();
-		bullet->Draw();*/
+		/*Shoot();*/
+		bullet->Update(this->position);
+		bullet->Move();
 	}
 
 	this->Move();
+}
+
+void FirstPlayer::Shoot()
+{
+	bullet->Draw();
 }

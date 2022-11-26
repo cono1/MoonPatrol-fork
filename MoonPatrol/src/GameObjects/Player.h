@@ -9,7 +9,8 @@ enum class InputType
 	JumpArrow = KEY_UP,
 	Pause = KEY_P,
 	Quit = KEY_Q,
-	Attack = KEY_ENTER
+	AttackEnter = KEY_ENTER,
+	AttackSpace = KEY_SPACE
 };
 
 struct JumpSettings
@@ -38,9 +39,9 @@ protected:
 	int health;
 	Color color;
 
-	Bullet* bullet;
 
 public:
+	Bullet* bullet;
 	Player(Vector2 position, float radius, int health);
 	//~Player();
 
@@ -63,6 +64,7 @@ public:
 	
 	//Drawing functions
 	void Draw();
+	virtual void Shoot()=0;
 
 	//Getters
 	Vector2 GetPosition();

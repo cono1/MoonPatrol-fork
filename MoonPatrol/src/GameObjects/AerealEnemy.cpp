@@ -1,9 +1,10 @@
 #include "AerealEnemy.h"
-
+#include <iostream>
 #include <cmath>
 
 //const int maxBullets = 2;
 //extern Bullet* bullet[maxBullets];
+//extern Bullet* bullet;
 
 AerealEnemy::AerealEnemy(float radius, Vector2 speed) : Enemy(position, radius)
 {
@@ -49,21 +50,21 @@ bool AerealEnemy::CheckCollision(Player* player)
 {
 	//for (int i = 0; i < maxBullets; i++)
 	//{
-	//	double distX = static_cast<double>(bullet[i]->GetPosition().x) - static_cast<double>(this->position.x);
-	//	double distY = static_cast<double>(bullet[i]->GetPosition().y) - static_cast<double>(this->position.y);
+		//double distX = static_cast<double>(bullet->GetPosition().x) - static_cast<double>(this->position.x);
+		//double distY = static_cast<double>(bullet->GetPosition().y) - static_cast<double>(this->position.y);
 
-	//	float distance = sqrt((distX * distX) + (distY * distY));
+		//float distance = sqrt((distX * distX) + (distY * distY));
 
-	//	if (distance <= bullet[i]->GetRadius() + this->radius)
-	//	{
-	//		return true;
-	//	}
-	//	else
-	//	{
-	//		return false;
-	//	}
+		//if (distance <= bullet->GetRadius() + this->radius)
+		//{
+		//	return true;
+		//}
+		//else
+		//{
+		//	return false;
+		//}
 	//}
-		return false;// (?
+	return false;
 }
 
 void AerealEnemy::Draw()

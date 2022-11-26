@@ -21,7 +21,6 @@ public:
 	void Draw();
 	void Update(Vector2 playerPos);
 	bool CheckCollision();
-	bool GetStatus();
 	bool GetIsAlive();
 	float GetRadius();
 	Vector2 GetPosition();

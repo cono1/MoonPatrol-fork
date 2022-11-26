@@ -17,6 +17,8 @@ Player::Player(Vector2 position, float radius, int health)
 	this->jumpSettings.jumpPower = static_cast<int> (this->jumpSettings.jumpPowerDefault);
 	this->jumpSettings.jumpTime = this->jumpSettings.jumpTimeDefault;
 	this->jumpSettings.maxJump = this->jumpSettings.maxJumpDefault;
+
+	this->bullet = bullet;
 }
 
 void Player::Move()
@@ -89,6 +91,11 @@ void Player::Draw()
 {
 	DrawCircleV(this->position, this->radius, color);
 }
+
+//void Player::Shoot()
+//{
+//	bullet->Draw();
+//}
 
 Vector2 Player::GetPosition()
 {
