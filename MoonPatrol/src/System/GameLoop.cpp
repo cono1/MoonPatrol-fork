@@ -21,8 +21,6 @@ Player* firstPlayer;
 Player* secondPlayer;
 Enemy* groundEnemy;
 Enemy* aerealEnemy;
-//Bullet* bullet[maxBullets];
-//Bullet* bullet;
 BackgroundImage* backgroundImages[8];
 
 bool playing = true;
@@ -31,11 +29,10 @@ void InitialSetup()
 {
 	playing = true;
 	score = 0;
-	firstPlayer = new FirstPlayer({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
-	secondPlayer = new SecondPlayer({ GetScreenWidth() / 4.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3);
+	firstPlayer = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3, MAGENTA);
+	secondPlayer = new Player({ GetScreenWidth() / 4.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3, GREEN);
 	groundEnemy = new GroundEnemy(GetScreenHeight() / 20.0f, 1, -200.0f);
 	aerealEnemy = new AerealEnemy(GetScreenHeight() / 20.0f, { 25, 250 });
-	//bullet = new Bullet(firstPlayer->GetPosition(), 1000, GetScreenHeight() / 80.0f);
 
 	groundEnemy->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
 	aerealEnemy->ChangePosition({ static_cast<float>(GetScreenWidth() / 6), GetScreenHeight() / 4.0f });
@@ -117,15 +114,6 @@ void GameLoop(bool onePlayer)
 		firstPlayer = nullptr;
 	}
 
-	//for (int i = 0; i < maxBullets; i++)
-	//{
-	//	if (bullet[i] != nullptr)
-	//	{
-	//		delete bullet[i];
-	//		bullet[i] = nullptr;
-	//	}
-	//}
-
 	if (groundEnemy != nullptr)
 	{
 		delete groundEnemy;
@@ -143,26 +131,19 @@ void Update(bool onePlayer)
 {
 	if (!onePlayer)
 	{
-		secondPlayer->TakeInput();
+		secondPlayer->TakeInput(KEY_W, KEY_SPACE);
 
-		/*bullet[1]->Update(secondPlayer->GetPosition());
-		bullet[1]->Move();*/
 		if (groundEnemy->CheckCollision(secondPlayer))
 		{
 			playing = false;
 		}
 	}
 
-	firstPlayer->TakeInput();
+	firstPlayer->TakeInput(KEY_UP, KEY_ENTER);
 	groundEnemy->Move();
 	aerealEnemy->Move();
 
-	//if (IsKeyPressed(static_cast<int>((InputType)(InputType::Attack))))
-	//{
-		//bullet->Update(firstPlayer->GetPosition());
-		//bullet->Move();
-	//}
-	//UpdateScore();
+	UpdateScore();
 	
 	for (int i = 0; i < 8; i++)
 	{
@@ -192,19 +173,11 @@ void Draw(bool onePlayer)
 	if (!onePlayer)
 	{
 		secondPlayer->Draw();
-		secondPlayer->Shoot();
 	}
 
 	firstPlayer->Draw();
-	firstPlayer->Shoot();
 	groundEnemy->Draw();
 	aerealEnemy->Draw();
-
-
-	//if (bullet[1]->GetIsAlive() && !onePlayer)
-	//{
-	//	bullet[1]->Draw();
-	//}
 	
 	DrawScore();
 

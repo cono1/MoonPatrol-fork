@@ -33,10 +33,10 @@ void Bullet::Move()
 
 void Bullet::Draw()
 {
-	//if (isAlive)
-	//{
+	if (isAlive)
+	{
 		DrawCircleV(this->position, radius, BLACK);
-	//}
+	}
 }
 
 void Bullet::Update(Vector2 playerPos)
@@ -46,7 +46,7 @@ void Bullet::Update(Vector2 playerPos)
 		position.y -= 100;
 	}
 
-	if (IsKeyPressed(KEY_ENTER) && !isAlive)
+	if (!isAlive)
 	{
 		isAlive = true;
 		position = playerPos;

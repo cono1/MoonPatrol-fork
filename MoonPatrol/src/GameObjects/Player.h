@@ -39,14 +39,16 @@ protected:
 	int health;
 	Color color;
 
+	bool shooting;
+
 
 public:
 	Bullet* bullet;
-	Player(Vector2 position, float radius, int health);
-	//~Player();
+	Player(Vector2 position, float radius, int health, Color color);
+	~Player();
 
 	//Main action selection
-	virtual void TakeInput() = 0;
+	void TakeInput(KeyboardKey jumpKey, KeyboardKey attackKey);
 	
 	//Simple update
 	void Move();
@@ -64,7 +66,7 @@ public:
 	
 	//Drawing functions
 	void Draw();
-	virtual void Shoot()=0;
+	void Shoot();
 
 	//Getters
 	Vector2 GetPosition();

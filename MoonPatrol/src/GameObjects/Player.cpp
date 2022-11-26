@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(Vector2 position, float radius, int health)
+Player::Player(Vector2 position, float radius, int health, Color color)
 {
 	this->position = position;
 	this->radius = radius;
@@ -18,7 +18,37 @@ Player::Player(Vector2 position, float radius, int health)
 	this->jumpSettings.jumpTime = this->jumpSettings.jumpTimeDefault;
 	this->jumpSettings.maxJump = this->jumpSettings.maxJumpDefault;
 
-	this->bullet = bullet;
+	this->bullet = new Bullet(position, 800, GetScreenHeight() / 80);
+}
+
+Player::~Player()
+{
+	delete bullet;
+}
+
+void Player::TakeInput(KeyboardKey jumpKey, KeyboardKey attackKey)
+{
+	if (IsKeyPressed(jumpKey))
+	{
+		if (this->jumpSettings.maxJump > 0)
+		{
+			this->Jump();
+		}
+	}
+
+	if (IsKeyPressed(attackKey))
+	{
+		shooting = true;
+	}
+
+	if (shooting)
+	{
+		bullet->Move();
+		bullet->Update(this->position);
+
+		shooting = bullet->GetIsAlive();
+	}
+	Move();
 }
 
 void Player::Move()
@@ -89,13 +119,14 @@ bool Player::CheckFloor()
 
 void Player::Draw()
 {
+	Shoot();
 	DrawCircleV(this->position, this->radius, color);
 }
 
-//void Player::Shoot()
-//{
-//	bullet->Draw();
-//}
+void Player::Shoot()
+{
+	bullet->Draw();
+}
 
 Vector2 Player::GetPosition()
 {
