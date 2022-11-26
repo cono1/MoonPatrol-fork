@@ -1,7 +1,7 @@
 #pragma once
 #include "raylib.h"
-#include "Bullets.h"
 
+#include "Bullets.h"
 
 enum class InputType
 {
@@ -71,5 +71,4 @@ public:
 	//Getters
 	Vector2 GetPosition();
 	float GetRadius();
-
 };

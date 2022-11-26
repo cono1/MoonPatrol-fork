@@ -4,10 +4,8 @@
 class BackgroundImage
 {
 private:
-
 	int speedXReference = 100;
 
-	//Could be part of another class
 	Color color;
 	Texture2D texture;
 	int layer;
@@ -18,7 +16,7 @@ private:
 
 public:
 	BackgroundImage(Texture2D text, Color color, int layer, Rectangle body);
-	//~BackgroundImage();
+	~BackgroundImage();
 
 	int GetLayer();
 

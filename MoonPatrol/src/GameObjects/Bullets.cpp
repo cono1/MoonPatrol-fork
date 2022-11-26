@@ -44,6 +44,7 @@ void Bullet::Update(Vector2 playerPos)
 	if (CheckCollision())
 	{
 		position.y -= 100;
+		std::cout << "colision";
 	}
 
 	if (!isAlive)
@@ -60,20 +61,21 @@ void Bullet::Update(Vector2 playerPos)
 
 bool Bullet::CheckCollision()
 {
-	double distX = static_cast<double>(this->position.x) - static_cast<double>(aerealEnemy->GetPosition().x);
-	double distY = static_cast<double>(this->position.y) - static_cast<double>(aerealEnemy->GetPosition().y);
+
+	double distX = static_cast<double>(aerealEnemy->GetPosition().x) - static_cast<double>(position.x);
+	double distY = static_cast<double>(aerealEnemy->GetPosition().y) - static_cast<double>(position.y);
 
 	double distance = (sqrt((distX * distX) + (distY * distY)));
 
 	if (distance <= aerealEnemy->GetRadius() + this->radius)
 	{
 		return true;
-		std::cout << "colision";
 	}
 	else
 	{
 		return false;
 	}
+
 }
 
 bool Bullet::GetIsAlive()

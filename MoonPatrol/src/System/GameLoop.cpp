@@ -1,4 +1,5 @@
 #include <iostream>
+
 #include "GameLoop.h"
 
 const int maxBullets = 2;

@@ -1,11 +1,10 @@
 #include "GroundEnemy.h"
-#include "Player.h"
-#include "Enemy.h"
+
 #include "raymath.h"
 
-extern Player* firstPlayer;
-extern Player* secondPlayer;
-extern bool playing;
+#include "Player.h"
+#include "Enemy.h"
+
 int spawnOffset = 10;
 
 GroundEnemy::GroundEnemy(float radius, float damage, float speed) : Enemy(position, radius)

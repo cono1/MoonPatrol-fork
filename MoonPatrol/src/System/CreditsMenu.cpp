@@ -4,10 +4,10 @@ void DrawTitle(const char* text);
 
 void ShowCredits(MenuScreen& currentScreen)
 {
-	Rectangle backButton { GetScreenWidth() / 4 - GetScreenWidth() / 4 / 2,
-		GetScreenHeight() / 2 + 20,
-		GetScreenWidth() / 4,
-		GetScreenHeight() / 12 };
+	Rectangle backButton { static_cast<float>(GetScreenWidth() / 4) - static_cast<float>(GetScreenWidth() / 4 / 2),
+		static_cast<float>(GetScreenHeight() / 2 + 20),
+		static_cast<float>(GetScreenWidth() / 4),
+		static_cast<float>(GetScreenHeight() / 12) };
 
 	if (CheckButton(backButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 	{
@@ -19,14 +19,14 @@ void ShowCredits(MenuScreen& currentScreen)
 
 	DrawTitle("CREDITS");
 
-	DrawText("MADE BY", GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(),"MADE BY", 36, 0).x / 2, GetScreenHeight() / 2 - GetScreenHeight() / 5, 36, RAYWHITE);
-	DrawText("IAN KUZNICKI", GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(), "IAN KUZNICKI", 36, 0).x / 2, GetScreenHeight() / 2 - GetScreenHeight() / 8, 36, RAYWHITE);
-	DrawText("DANIELA GONZALEZ", GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(),"DANIELA GONZALEZ", 36, 0).x / 2, GetScreenHeight() / 2 - GetScreenHeight() / 14, 36, RAYWHITE);
+	DrawText("MADE BY", static_cast<int>(GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(),"MADE BY", 36, 0).x / 2), static_cast<int>(GetScreenHeight() / 2 - GetScreenHeight() / 5), 36, RAYWHITE);
+	DrawText("IAN KUZNICKI", static_cast<int>(GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(), "IAN KUZNICKI", 36, 0).x / 2), static_cast<int>(GetScreenHeight() / 2 - GetScreenHeight() / 8), 36, RAYWHITE);
+	DrawText("DANIELA GONZALEZ", static_cast<int>(GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(),"DANIELA GONZALEZ", 36, 0).x / 2), static_cast<int>(GetScreenHeight() / 2 - GetScreenHeight() / 14), 36, RAYWHITE);
 
 	DrawRectangleRec(backButton, RAYWHITE);
 	
 	Vector2 backMeasure = MeasureTextEx(GetFontDefault(), "BACK", 36, 0);
-	DrawText("BACK", backButton.x + backButton.width / 2 - backMeasure.x / 2, backButton.y + backButton.height / 2 - backMeasure.y / 2, 36, BLACK);
+	DrawText("BACK", static_cast<int>(backButton.x + backButton.width / 2 - backMeasure.x / 2), static_cast<int>(backButton.y + backButton.height / 2 - backMeasure.y / 2), 36, BLACK);
 
 	EndDrawing();
 }

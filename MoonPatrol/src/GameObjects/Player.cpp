@@ -12,13 +12,13 @@ Player::Player(Vector2 position, float radius, int health, Color color)
 	this->isGrounded = true;
 
 	this->color = color;
-
+	shooting = false;
 	this->jumpSettings.maxJump = this->jumpSettings.maxJumpDefault;
 	this->jumpSettings.jumpPower = static_cast<int> (this->jumpSettings.jumpPowerDefault);
 	this->jumpSettings.jumpTime = this->jumpSettings.jumpTimeDefault;
 	this->jumpSettings.maxJump = this->jumpSettings.maxJumpDefault;
 
-	this->bullet = new Bullet(position, 800, GetScreenHeight() / 80);
+	this->bullet = new Bullet(position, 800, static_cast<float>(GetScreenHeight() / 80));
 }
 
 Player::~Player()

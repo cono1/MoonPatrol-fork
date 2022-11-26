@@ -1,12 +1,10 @@
 #pragma once
-
-#include <raylib.h>
+#include "raylib.h"
 
 class Bullet
 {
 private:
 	Vector2 position;
-	//Color color;
 	float speed;
 	float radius;
 
@@ -25,5 +23,3 @@ public:
 	float GetRadius();
 	Vector2 GetPosition();
 };
-
-

@@ -1,10 +1,7 @@
 #include "AerealEnemy.h"
+
 #include <iostream>
 #include <cmath>
-
-//const int maxBullets = 2;
-//extern Bullet* bullet[maxBullets];
-//extern Bullet* bullet;
 
 AerealEnemy::AerealEnemy(float radius, Vector2 speed) : Enemy(position, radius)
 {
