@@ -11,7 +11,7 @@ GroundEnemy::GroundEnemy(float radius, float damage, float speed) : Enemy(positi
 {
 	this->radius = radius;
 	this->damage = damage;
-	this->speed = speed;
+	this->speed = { speed, 0 };
 
 	this->position = { 0,0 };
 }
@@ -27,7 +27,7 @@ void GroundEnemy::Move()
 
 	Vector2 newPos;
 
-	newPos = { this->position.x + speed * GetFrameTime(), this->position.y };
+	newPos = { this->position.x + speed.x * GetFrameTime(), this->position.y };
 
 	this->position = newPos;
 }

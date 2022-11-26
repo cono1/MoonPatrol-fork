@@ -76,6 +76,14 @@ bool Bullet::CheckCollision()
 		return false;
 	}
 
+	//if (CheckCollisionCircles(aerealEnemy->GetPosition(), aerealEnemy->GetRadius(), position, radius));
+	//{
+	//	std::cout << "esta colisionando" << std::endl;
+	//	return true;
+	//}
+
+	//return false;
+
 }
 
 bool Bullet::GetIsAlive()

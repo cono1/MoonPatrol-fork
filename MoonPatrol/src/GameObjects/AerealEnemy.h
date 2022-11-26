@@ -4,9 +4,6 @@
 class AerealEnemy : public Enemy
 {
 private:
-	Vector2 position;
-	float radius;
-	Vector2 speed;
 
 public:
 	AerealEnemy(float radius, Vector2 speed);

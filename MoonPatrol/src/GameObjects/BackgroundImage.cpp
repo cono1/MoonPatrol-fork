@@ -28,6 +28,11 @@ BackgroundImage::BackgroundImage(Texture2D text, Color color, int layer, Rectang
 	this->body = body;
 }
 
+BackgroundImage::~BackgroundImage()
+{
+	UnloadTexture(this->texture);
+}
+
 int BackgroundImage::GetLayer()
 {
 	return this->layer;

@@ -126,6 +126,15 @@ void GameLoop(bool onePlayer)
 		delete aerealEnemy;
 		aerealEnemy = nullptr;
 	}
+
+	for (int i = 0; i < 8; i++)
+	{
+		if (backgroundImages[i] != nullptr)
+		{
+			delete backgroundImages[i];
+			backgroundImages[i] = nullptr;
+		}
+	}
 }
 
 void Update(bool onePlayer)

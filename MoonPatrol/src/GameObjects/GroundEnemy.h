@@ -4,10 +4,8 @@
 class GroundEnemy : public Enemy
 {
 private:
-	Vector2 position;
-	float radius;
 	float damage;
-	float speed;
+
 
 public:
 	GroundEnemy(float radius, float damage, float speed);

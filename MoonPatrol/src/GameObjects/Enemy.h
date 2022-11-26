@@ -8,6 +8,7 @@ class Enemy
 protected:
 	Vector2 position;
 	float radius;
+	Vector2 speed;
 public:
 	Enemy(Vector2 position, float radius);
 	virtual ~Enemy();

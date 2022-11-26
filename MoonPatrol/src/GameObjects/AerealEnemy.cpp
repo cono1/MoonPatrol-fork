@@ -26,7 +26,7 @@ void AerealEnemy::Move()
 	this->CheckLimits();
 
 	position.x += speed.x * GetFrameTime(); 
-	position.y += speed.y * sin(position.x) * GetFrameTime(); 
+	//position.y += speed.y * sin(position.x) * GetFrameTime();
 
 }
 
@@ -66,5 +66,5 @@ bool AerealEnemy::CheckCollision(Player* player)
 
 void AerealEnemy::Draw()
 {
-	DrawCircleV(this->position, this->radius, YELLOW);
+	DrawCircleV(this->position, this->radius, RED);
 }
