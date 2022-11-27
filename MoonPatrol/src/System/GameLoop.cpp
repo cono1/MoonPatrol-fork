@@ -194,7 +194,7 @@ void DrawBackground()
 
 void DrawGameVersion()
 {
-	DrawText("Version: 0.4", 0, 0, 46, RAYWHITE);
+	DrawText("Version: 1.0", 0, 0, 46, RAYWHITE);
 }
 
 void DrawScore()
