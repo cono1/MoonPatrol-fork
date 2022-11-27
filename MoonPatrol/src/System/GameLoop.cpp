@@ -186,7 +186,7 @@ void Draw(bool onePlayer)
 void DrawBackground()
 {
 	for (int i = 0; i < 8; i++)
-	{	//CAMBIALE EL TAMAÑO A LOS FONDOS Y VAS ACHICANDOLOS,. EL ULTIMO DEJALO A MAX WIDTH PERO LOS OTROS ANDÁ ALEJANDOLOS
+	{	
 		backgroundImages[i]->Draw();
 	}
 	DrawRectangle(0, GetScreenHeight() - GetScreenHeight() / 4, GetScreenWidth(), GetScreenHeight() / 4, DARKGREEN);
