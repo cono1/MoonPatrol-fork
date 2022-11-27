@@ -30,12 +30,12 @@ void InitialSetup()
 {
 	playing = true;
 	score = 0;
-	firstPlayer = new Player({ GetScreenWidth() / 3.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3, MAGENTA);
-	secondPlayer = new Player({ GetScreenWidth() / 4.0f , GetScreenHeight() / 2.0f }, GetScreenHeight() / 10.0f, 3, GREEN);
+	firstPlayer = new Player({ GetScreenWidth() / 3.0f , static_cast<float>(GetScreenHeight()-200) }, GetScreenHeight() / 10.0f, 3, MAGENTA);
+	secondPlayer = new Player({ GetScreenWidth() / 4.0f ,  static_cast<float>(GetScreenHeight()-200) }, GetScreenHeight() / 10.0f, 3, GREEN);
 	groundEnemy = new GroundEnemy(GetScreenHeight() / 20.0f, 1, -200.0f);
 	aerealEnemy = new AerealEnemy(GetScreenHeight() / 20.0f, { 25, 250 });
 
-	groundEnemy->ChangePosition({ GetScreenWidth() + 20.0f, GetScreenHeight() / 2.0f });
+	groundEnemy->ChangePosition({ GetScreenWidth() + 20.0f, static_cast<float>(GetScreenHeight() - 200) });
 	aerealEnemy->ChangePosition({ static_cast<float>(GetScreenWidth() / 6), GetScreenHeight() / 4.0f });
 
 	CreateBackgrounds();

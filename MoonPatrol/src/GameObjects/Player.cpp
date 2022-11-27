@@ -101,9 +101,9 @@ void Player::HandleGravity()
 bool Player::CheckFloor()
 {
 	//Is grounded
-	if (this->position.y >= GetScreenHeight() / 2)
+	if (position.y >= (GetScreenHeight() - 200))
 	{
-		this->ChangePosition({ this->position.x,GetScreenHeight() / 2.0f });
+		this->ChangePosition({ this->position.x, static_cast<float>(GetScreenHeight() - 200) });
 		this->velocity.y = 0;
 
 		this->jumpSettings.jumpTime = this->jumpSettings.jumpTimeDefault;
@@ -120,7 +120,7 @@ bool Player::CheckFloor()
 void Player::Draw()
 {
 	Shoot();
-	DrawCircleV(this->position, this->radius, color);
+	DrawCircleV(position,radius, color);
 }
 
 void Player::Shoot()
