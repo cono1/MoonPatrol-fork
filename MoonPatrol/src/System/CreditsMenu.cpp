@@ -19,7 +19,7 @@ void ShowCredits(MenuScreen& currentScreen)
 
 	DrawTitle("CREDITS");
 
-	DrawText("MADE BY", static_cast<int>(GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(),"MADE BY", 36, 0).x / 2), static_cast<int>(GetScreenHeight() / 2 - GetScreenHeight() / 5), 36, RAYWHITE);
+	DrawText("MADE BY", static_cast<int>(GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(),"MADE BY", 25, 0).x / 2), static_cast<int>(GetScreenHeight() / 2 - GetScreenHeight() / 6), 25, RAYWHITE);
 	DrawText("IAN KUZNICKI", static_cast<int>(GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(), "IAN KUZNICKI", 36, 0).x / 2), static_cast<int>(GetScreenHeight() / 2 - GetScreenHeight() / 8), 36, RAYWHITE);
 	DrawText("DANIELA GONZALEZ", static_cast<int>(GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(),"DANIELA GONZALEZ", 36, 0).x / 2), static_cast<int>(GetScreenHeight() / 2 - GetScreenHeight() / 14), 36, RAYWHITE);
 

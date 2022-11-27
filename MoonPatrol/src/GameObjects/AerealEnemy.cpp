@@ -3,11 +3,13 @@
 #include <iostream>
 #include <cmath>
 
+extern Player* firstPlayer;
+
 AerealEnemy::AerealEnemy(float radius, Vector2 speed) : Enemy(position, radius)
 {
 	this->radius = radius;
 	this->speed = speed;
-
+	this->hp = 20;
 	this->position = { 0,0 };
 }
 
@@ -21,13 +23,23 @@ float AerealEnemy::GetRadius()
 	return this->radius;
 }
 
-void AerealEnemy::Move()
+void AerealEnemy::Update()
 {
 	this->CheckLimits();
 
 	position.x += speed.x * GetFrameTime(); 
 	position.y += speed.y * sin(position.x) * GetFrameTime();
 
+	if (CheckCollision(firstPlayer))
+	{
+		hp -= 10;
+	}
+
+	if (hp <= 0)
+	{
+		position = { 0,150 };
+		hp = 20;
+	}
 }
 
 void AerealEnemy::ChangePosition(Vector2 newPosition)
@@ -50,14 +62,7 @@ bool AerealEnemy::CheckCollision(Player* player)
 
 	float distance = sqrt((distX * distX) + (distY * distY));
 
-	if (distance <= player->GetBulletRadius() + this->radius)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	return (distance <= player->GetBulletRadius() + this->radius);
 }
 
 void AerealEnemy::Draw()

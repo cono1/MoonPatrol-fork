@@ -166,6 +166,7 @@
     <ClCompile Include="src\GameObjects\Player.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\System\CreditsMenu.cpp" />
+    <ClCompile Include="src\System\HowToPlayMenu.cpp" />
     <ClCompile Include="src\System\MainMenu.cpp" />
     <ClCompile Include="src\System\GameLoop.cpp" />
     <ClCompile Include="src\System\OptionsMenu.cpp" />

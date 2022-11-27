@@ -40,6 +40,9 @@
     <ClCompile Include="src\System\OptionsMenu.cpp">
       <Filter>System</Filter>
     </ClCompile>
+    <ClCompile Include="src\System\HowToPlayMenu.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\System\GameLoop.h">

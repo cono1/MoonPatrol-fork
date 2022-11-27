@@ -51,7 +51,7 @@ public:
 	void TakeInput(KeyboardKey jumpKey, KeyboardKey attackKey, int& score);
 	
 	//Simple update
-	void Move();
+	void Update();
 
 	//Game flow functions
 	void Damage(int damage);

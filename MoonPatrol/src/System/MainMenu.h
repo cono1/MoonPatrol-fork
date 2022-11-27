@@ -12,5 +12,6 @@ enum class MenuScreen
 	Play,
 	Options,
 	Credits,
-	Quit
+	Quit,
+	HowToPlay
 };

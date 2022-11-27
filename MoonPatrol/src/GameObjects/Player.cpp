@@ -43,15 +43,15 @@ void Player::TakeInput(KeyboardKey jumpKey, KeyboardKey attackKey, int& score)
 
 	if (shooting)
 	{
-		bullet->Move();
+		bullet->Update();
 		bullet->Update(this->position, score);
 
 		shooting = bullet->GetIsAlive();
 	}
-	Move();
+	Update();
 }
 
-void Player::Move()
+void Player::Update()
 {
 	this->position.y += this->velocity.y * GetFrameTime();
 	this->HandleGravity();
@@ -142,7 +142,6 @@ float Player::GetBulletRadius()
 {
 	return bullet->GetRadius();
 }
-
 
 float Player::GetRadius()
 {

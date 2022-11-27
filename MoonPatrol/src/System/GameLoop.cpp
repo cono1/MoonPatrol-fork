@@ -10,7 +10,6 @@ void CreateBackgrounds();
 void SortBackgrounds();
 
 void Update(bool onePlayer);
-void UpdateScore();
 
 void Draw(bool onePlayer);
 void DrawBackground();
@@ -138,8 +137,6 @@ void GameLoop(bool onePlayer)
 
 void Update(bool onePlayer)
 {
-	UpdateScore();
-
 	if (!onePlayer)
 	{
 		secondPlayer->TakeInput(KEY_W, KEY_SPACE, score);
@@ -151,8 +148,8 @@ void Update(bool onePlayer)
 	}
 
 	firstPlayer->TakeInput(KEY_UP, KEY_ENTER, score);
-	groundEnemy->Move();
-	aerealEnemy->Move();
+	groundEnemy->Update();
+	aerealEnemy->Update();
 	
 	for (int i = 0; i < 8; i++)
 	{
@@ -163,14 +160,6 @@ void Update(bool onePlayer)
 	{
 		playing = false;
 	}
-}
-
-void UpdateScore()
-{
-	//if (aerealEnemy->CheckCollision(firstPlayer))
-	//{
-	//	score += 10;
-	//}
 }
 
 void Draw(bool onePlayer)

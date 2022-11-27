@@ -14,7 +14,7 @@ public:
 	virtual ~Enemy();
 	Vector2 GetPosition();
 	float GetRadius();
-	virtual void Move() = 0;
+	virtual void Update() = 0;
 	virtual void ChangePosition(Vector2 newPosition) = 0;
 	virtual void CheckLimits() = 0;
 	virtual bool CheckCollision(Player* player) = 0;

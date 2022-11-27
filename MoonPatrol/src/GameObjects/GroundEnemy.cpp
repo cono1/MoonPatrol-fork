@@ -21,7 +21,7 @@ GroundEnemy::~GroundEnemy()
 
 }
 
-void GroundEnemy::Move()
+void GroundEnemy::Update()
 {
 	this->CheckLimits();
 

@@ -4,12 +4,12 @@
 class AerealEnemy : public Enemy
 {
 private:
-
+	float hp;
 public:
 	AerealEnemy(float radius, Vector2 speed);
 	~AerealEnemy();
 	float GetRadius();
-	void Move() override;
+	void Update() override;
 	void ChangePosition(Vector2 newPosition) override;
 	void CheckLimits() override;
 	bool CheckCollision(Player* player) override;

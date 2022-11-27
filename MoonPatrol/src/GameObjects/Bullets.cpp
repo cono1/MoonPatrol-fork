@@ -22,7 +22,7 @@ Bullet::~Bullet()
 
 }
 
-void Bullet::Move()
+void Bullet::Update()
 {
 	if (!isAlive)
 	{
@@ -68,14 +68,6 @@ bool Bullet::CheckCollision()
 	double distance = (sqrt((distX * distX) + (distY * distY)));
 
 	return (distance <= aerealEnemy->GetRadius() + this->radius);
-
-	//if (CheckCollisionCircles(aerealEnemy->GetPosition(), aerealEnemy->GetRadius(), position, radius));
-	//{
-	//	std::cout << "esta colisionando" << std::endl;
-	//	return true;
-	//}
-
-	//return false;
 
 }
 
