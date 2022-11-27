@@ -2,8 +2,8 @@
 
 #include "GameLoop.h"
 
-const int maxBullets = 2;
 int score;
+int maxScore;
 
 void InitialSetup();
 void CreateBackgrounds();
@@ -29,6 +29,7 @@ void InitialSetup()
 {
 	playing = true;
 	score = 0;
+	maxScore = 500;
 	firstPlayer = new Player({ GetScreenWidth() / 3.0f , static_cast<float>(GetScreenHeight()-200) }, GetScreenHeight() / 10.0f, 3, MAGENTA);
 	secondPlayer = new Player({ GetScreenWidth() / 4.0f ,  static_cast<float>(GetScreenHeight()-200) }, GetScreenHeight() / 10.0f, 3, GREEN);
 	groundEnemy = new GroundEnemy(GetScreenHeight() / 20.0f, 1, -200.0f);
@@ -89,10 +90,9 @@ void GameLoop(bool onePlayer)
 	while (!playing)
 	{
 		ShowLoseScreen();
-		if (IsKeyPressed(KEY_ENTER))
+		if (IsKeyPressed(KEY_M))
 		{
 			InitialSetup();
-			playing = true;
 		}
 
 		if (IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
@@ -156,7 +156,7 @@ void Update(bool onePlayer)
 		backgroundImages[i]->Move();
 	}
 
-	if (groundEnemy->CheckCollision(firstPlayer))
+	if (groundEnemy->CheckCollision(firstPlayer) || score > maxScore)
 	{
 		playing = false;
 	}
@@ -204,12 +204,23 @@ void DrawScore()
 
 void ShowLoseScreen()
 {
+	
 	BeginDrawing();
 	ClearBackground(BLACK);
 	DrawBackground();
-	DrawText("You lost", GetScreenWidth() / 4, GetScreenHeight() / 4, 100, WHITE);
-	DrawText(TextFormat("Your score was: %i ", score), GetScreenWidth() / 6, GetScreenHeight() / 2, 80, WHITE);
-	DrawText("Press enter to play again", GetScreenWidth() / 4, GetScreenHeight() - 110, 40, WHITE);
-	DrawText("Press esc to close game", GetScreenWidth() / 4, GetScreenHeight() - 70, 40, WHITE);
+	if (score < maxScore)
+	{
+		DrawText("You lost", GetScreenWidth() / 4, GetScreenHeight() / 4, 100, WHITE);
+		DrawText(TextFormat("Your score was: %i ", score), GetScreenWidth() / 6, GetScreenHeight() / 2, 80, WHITE);
+		DrawText("Press M to go back to menu", GetScreenWidth() / 4, GetScreenHeight() - 110, 40, WHITE);
+		DrawText("Press ESC to close game", GetScreenWidth() / 4, GetScreenHeight() - 70, 40, WHITE);
+	}	
+	else if (score >= maxScore)
+	{
+		DrawText("You won!", GetScreenWidth() / 4, GetScreenHeight() / 4, 100, WHITE);
+		DrawText(TextFormat("Your score was: %i ", score), GetScreenWidth() / 6, GetScreenHeight() / 2, 80, WHITE);
+		DrawText("Press M to go back to menu", GetScreenWidth() / 4, GetScreenHeight() - 110, 40, WHITE);
+		DrawText("Press ESC to close game", GetScreenWidth() / 4, GetScreenHeight() - 70, 40, WHITE);
+	}
 	EndDrawing();
 }
