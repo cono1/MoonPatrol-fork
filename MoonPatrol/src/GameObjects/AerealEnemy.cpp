@@ -1,6 +1,5 @@
 #include "AerealEnemy.h"
 
-#include <iostream>
 #include <cmath>
 
 extern Player* firstPlayer;

@@ -1,13 +1,10 @@
 #include "Bullets.h"
 
-#include <iostream>
 #include <cmath>
 
-#include "Player.h"
 #include "AerealEnemy.h"
 
 extern Enemy* aerealEnemy;
-extern Player* firstPlayer;
 
 Bullet::Bullet(Vector2 position, float speed, float radius)
 {
@@ -46,7 +43,6 @@ void Bullet::Update(Vector2 playerPos, int& score)
 	{
 		position.y -= playerPos.x;
 		score += 10;
-		std::cout << "colision";
 	}
 
 	if (!isAlive) 

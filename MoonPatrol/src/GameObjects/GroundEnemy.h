@@ -5,6 +5,7 @@ class GroundEnemy : public Enemy
 {
 private:
 	float damage;
+	int spawnOffset;
 
 public:
 	GroundEnemy(float radius, float damage, float speed);

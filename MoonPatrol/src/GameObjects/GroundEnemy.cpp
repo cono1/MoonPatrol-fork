@@ -2,17 +2,12 @@
 
 #include "raymath.h"
 
-#include "Player.h"
-#include "Enemy.h"
-
-int spawnOffset = 10;
-
 GroundEnemy::GroundEnemy(float radius, float damage, float speed) : Enemy(position, radius)
 {
 	this->radius = radius;
 	this->damage = damage;
 	this->speed = { speed, 0 };
-
+	spawnOffset = 10;
 	this->position = { 0,0 };
 }
 
