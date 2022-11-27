@@ -17,7 +17,7 @@ public:
 
 	void Move();
 	void Draw();
-	void Update(Vector2 playerPos);
+	void Update(Vector2 playerPos, int& score);
 	bool CheckCollision();
 	bool GetIsAlive();
 	float GetRadius();

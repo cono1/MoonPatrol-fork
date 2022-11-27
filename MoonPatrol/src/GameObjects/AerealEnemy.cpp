@@ -26,7 +26,7 @@ void AerealEnemy::Move()
 	this->CheckLimits();
 
 	position.x += speed.x * GetFrameTime(); 
-	//position.y += speed.y * sin(position.x) * GetFrameTime();
+	position.y += speed.y * sin(position.x) * GetFrameTime();
 
 }
 
@@ -45,23 +45,19 @@ void AerealEnemy::CheckLimits()
 
 bool AerealEnemy::CheckCollision(Player* player)
 {
-	//for (int i = 0; i < maxBullets; i++)
-	//{
-		//double distX = static_cast<double>(bullet->GetPosition().x) - static_cast<double>(this->position.x);
-		//double distY = static_cast<double>(bullet->GetPosition().y) - static_cast<double>(this->position.y);
+	double distX = static_cast<double>(player->GetBulletPos().x) - static_cast<double>(this->position.x);
+	double distY = static_cast<double>(player->GetBulletPos().y) - static_cast<double>(this->position.y);
 
-		//float distance = sqrt((distX * distX) + (distY * distY));
+	float distance = sqrt((distX * distX) + (distY * distY));
 
-		//if (distance <= bullet->GetRadius() + this->radius)
-		//{
-		//	return true;
-		//}
-		//else
-		//{
-		//	return false;
-		//}
-	//}
-	return false;
+	if (distance <= player->GetBulletRadius() + this->radius)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 void AerealEnemy::Draw()

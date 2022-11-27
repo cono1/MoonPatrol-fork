@@ -26,7 +26,7 @@ Player::~Player()
 	delete bullet;
 }
 
-void Player::TakeInput(KeyboardKey jumpKey, KeyboardKey attackKey)
+void Player::TakeInput(KeyboardKey jumpKey, KeyboardKey attackKey, int& score)
 {
 	if (IsKeyPressed(jumpKey))
 	{
@@ -44,7 +44,7 @@ void Player::TakeInput(KeyboardKey jumpKey, KeyboardKey attackKey)
 	if (shooting)
 	{
 		bullet->Move();
-		bullet->Update(this->position);
+		bullet->Update(this->position, score);
 
 		shooting = bullet->GetIsAlive();
 	}
@@ -132,6 +132,17 @@ Vector2 Player::GetPosition()
 {
 	return this->position;
 }
+
+Vector2 Player::GetBulletPos()
+{
+	return bullet->GetPosition();
+}
+
+float Player::GetBulletRadius()
+{
+	return bullet->GetRadius();
+}
+
 
 float Player::GetRadius()
 {

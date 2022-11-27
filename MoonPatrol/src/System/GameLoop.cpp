@@ -39,7 +39,6 @@ void InitialSetup()
 	aerealEnemy->ChangePosition({ static_cast<float>(GetScreenWidth() / 6), GetScreenHeight() / 4.0f });
 
 	CreateBackgrounds();
-
 	SortBackgrounds();
 }
 
@@ -139,9 +138,11 @@ void GameLoop(bool onePlayer)
 
 void Update(bool onePlayer)
 {
+	UpdateScore();
+
 	if (!onePlayer)
 	{
-		secondPlayer->TakeInput(KEY_W, KEY_SPACE);
+		secondPlayer->TakeInput(KEY_W, KEY_SPACE, score);
 
 		if (groundEnemy->CheckCollision(secondPlayer))
 		{
@@ -149,11 +150,9 @@ void Update(bool onePlayer)
 		}
 	}
 
-	firstPlayer->TakeInput(KEY_UP, KEY_ENTER);
+	firstPlayer->TakeInput(KEY_UP, KEY_ENTER, score);
 	groundEnemy->Move();
 	aerealEnemy->Move();
-
-	UpdateScore();
 	
 	for (int i = 0; i < 8; i++)
 	{
@@ -168,10 +167,10 @@ void Update(bool onePlayer)
 
 void UpdateScore()
 {
-	if (aerealEnemy->CheckCollision(firstPlayer))
-	{
-		score += 10;
-	}
+	//if (aerealEnemy->CheckCollision(firstPlayer))
+	//{
+	//	score += 10;
+	//}
 }
 
 void Draw(bool onePlayer)

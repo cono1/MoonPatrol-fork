@@ -48,7 +48,7 @@ public:
 	~Player();
 
 	//Main action selection
-	void TakeInput(KeyboardKey jumpKey, KeyboardKey attackKey);
+	void TakeInput(KeyboardKey jumpKey, KeyboardKey attackKey, int& score);
 	
 	//Simple update
 	void Move();
@@ -70,5 +70,7 @@ public:
 
 	//Getters
 	Vector2 GetPosition();
+	Vector2 GetBulletPos();
+	float GetBulletRadius();
 	float GetRadius();
 };
