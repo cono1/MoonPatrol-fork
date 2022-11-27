@@ -15,6 +15,7 @@ Bullet::Bullet(Vector2 position, float speed, float radius)
 	this->speed = speed;
 	this->radius = radius;
 	isAlive = false;
+	damage = 10;
 }
 
 Bullet::~Bullet()
@@ -79,6 +80,11 @@ bool Bullet::GetIsAlive()
 float Bullet::GetRadius()
 {
 	return this->radius;
+}
+
+int Bullet::GetDamage()
+{
+	return damage;
 }
 
 Vector2 Bullet::GetPosition()

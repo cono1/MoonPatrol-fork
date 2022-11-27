@@ -7,8 +7,7 @@ private:
 	Vector2 position;
 	float speed;
 	float radius;
-
-protected:
+	int damage;
 
 public:
 	bool isAlive;
@@ -21,5 +20,6 @@ public:
 	bool CheckCollision();
 	bool GetIsAlive();
 	float GetRadius();
+	int GetDamage();
 	Vector2 GetPosition();
 };

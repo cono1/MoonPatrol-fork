@@ -14,7 +14,6 @@ void DrawButtons(Rectangle playButton, Rectangle optionsButton, Rectangle credit
 
 void GameLoop(bool onePlayer);
 
-
 void StartProgram()
 {
 	StartWindow();
@@ -76,7 +75,7 @@ void ShowMenu(MenuScreen& currentScreen)
 		static_cast<float> (GetScreenHeight() / 12) };
 
 
-	if (CheckButton(playButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+	if (CheckButton(playButton) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsKeyPressed(KEY_ENTER))
 	{
 		currentScreen = MenuScreen::Play;
 	}
@@ -154,5 +153,5 @@ void StartWindow()
 	int width = 1024;
 	int height = 720;
 
-	InitWindow(width, height, "MoonPatrol - By Ian Kuznicki");
+	InitWindow(width, height, "MoonPatrol - By Ian Kuznicki  -  Daniela Gonzalez");
 }

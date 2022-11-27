@@ -5,6 +5,7 @@ class AerealEnemy : public Enemy
 {
 private:
 	float hp;
+
 public:
 	AerealEnemy(float radius, Vector2 speed);
 	~AerealEnemy();

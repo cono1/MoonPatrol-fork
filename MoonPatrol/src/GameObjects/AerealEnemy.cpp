@@ -32,7 +32,7 @@ void AerealEnemy::Update()
 
 	if (CheckCollision(firstPlayer))
 	{
-		hp -= 10;
+		hp -= firstPlayer->GetBulletDamage();
 	}
 
 	if (hp <= 0)

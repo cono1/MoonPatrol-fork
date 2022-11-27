@@ -41,7 +41,6 @@ protected:
 
 	bool shooting;
 
-
 public:
 	Bullet* bullet;
 	Player(Vector2 position, float radius, int health, Color color);
@@ -73,4 +72,5 @@ public:
 	Vector2 GetBulletPos();
 	float GetBulletRadius();
 	float GetRadius();
+	int GetBulletDamage();
 };

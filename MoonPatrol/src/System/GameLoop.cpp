@@ -15,7 +15,7 @@ void Draw(bool onePlayer);
 void DrawBackground();
 void DrawGameVersion();
 void DrawScore();
-void ShowLoseScreen();
+void ShowFinalMessage();
 
 Player* firstPlayer;
 Player* secondPlayer;
@@ -29,7 +29,7 @@ void InitialSetup()
 {
 	playing = true;
 	score = 0;
-	maxScore = 500;
+	maxScore = 150;
 	firstPlayer = new Player({ GetScreenWidth() / 3.0f , static_cast<float>(GetScreenHeight()-200) }, GetScreenHeight() / 10.0f, 3, MAGENTA);
 	secondPlayer = new Player({ GetScreenWidth() / 4.0f ,  static_cast<float>(GetScreenHeight()-200) }, GetScreenHeight() / 10.0f, 3, GREEN);
 	groundEnemy = new GroundEnemy(GetScreenHeight() / 20.0f, 1, -200.0f);
@@ -89,7 +89,7 @@ void GameLoop(bool onePlayer)
 
 	while (!playing)
 	{
-		ShowLoseScreen();
+		ShowFinalMessage();
 		if (IsKeyPressed(KEY_M))
 		{
 			InitialSetup();
@@ -202,9 +202,8 @@ void DrawScore()
 	DrawText(TextFormat("Score: %i ", score), GetScreenWidth() - 250, 0, 46, WHITE);
 }
 
-void ShowLoseScreen()
+void ShowFinalMessage()
 {
-	
 	BeginDrawing();
 	ClearBackground(BLACK);
 	DrawBackground();
@@ -217,8 +216,8 @@ void ShowLoseScreen()
 	}	
 	else if (score >= maxScore)
 	{
-		DrawText("You won!", GetScreenWidth() / 4, GetScreenHeight() / 4, 100, WHITE);
-		DrawText(TextFormat("Your score was: %i ", score), GetScreenWidth() / 6, GetScreenHeight() / 2, 80, WHITE);
+		DrawText("You reached\nthe max score!", GetScreenWidth() / 5, GetScreenHeight() / 4, 100, WHITE);
+		DrawText(TextFormat("  Your score was: %i ", score), GetScreenWidth() / 5, GetScreenHeight() - 250, 60, WHITE);
 		DrawText("Press M to go back to menu", GetScreenWidth() / 4, GetScreenHeight() - 110, 40, WHITE);
 		DrawText("Press ESC to close game", GetScreenWidth() / 4, GetScreenHeight() - 70, 40, WHITE);
 	}

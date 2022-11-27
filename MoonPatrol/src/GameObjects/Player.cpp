@@ -147,3 +147,8 @@ float Player::GetRadius()
 {
 	return this->radius;
 }
+
+int Player::GetBulletDamage()
+{
+	return bullet->GetDamage();
+}

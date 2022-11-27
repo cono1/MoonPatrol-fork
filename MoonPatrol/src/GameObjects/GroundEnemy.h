@@ -6,7 +6,6 @@ class GroundEnemy : public Enemy
 private:
 	float damage;
 
-
 public:
 	GroundEnemy(float radius, float damage, float speed);
 	~GroundEnemy();
