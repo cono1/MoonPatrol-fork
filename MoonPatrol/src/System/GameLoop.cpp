@@ -85,6 +85,7 @@ void GameLoop(bool onePlayer)
 	{
 		Update(onePlayer);
 		Draw(onePlayer);
+
 		if (IsKeyPressed(KEY_M))
 		{
 			break;

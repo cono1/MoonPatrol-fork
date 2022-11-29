@@ -23,6 +23,10 @@ void ShowCredits(MenuScreen& currentScreen)
 	DrawText("IAN KUZNICKI", static_cast<int>(GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(), "IAN KUZNICKI", 36, 0).x / 2), static_cast<int>(GetScreenHeight() / 2 - GetScreenHeight() / 8), 36, RAYWHITE);
 	DrawText("DANIELA GONZALEZ", static_cast<int>(GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(),"DANIELA GONZALEZ", 36, 0).x / 2), static_cast<int>(GetScreenHeight() / 2 - GetScreenHeight() / 14), 36, RAYWHITE);
 
+	DrawText("BACKGROUND BY", static_cast<int>(GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(), "BACKGROUND BY", 25, 0).x / 2), static_cast<int>(GetScreenHeight() - GetScreenHeight() / 3), 25, RAYWHITE);
+	DrawText("Ansimuz", static_cast<int>(GetScreenWidth() / 2 - MeasureTextEx(GetFontDefault(), "Ansimuz", 36, 0).x / 2), static_cast<int>(GetScreenHeight() - GetScreenHeight() / 4), 36, RAYWHITE);
+	DrawText("https://opengameart.org/content/forest-background", static_cast<int>(GetScreenWidth() / 4 - MeasureTextEx(GetFontDefault(), "https://opengameart.org/content/forest-background", 20, 0).x / 2), static_cast<int>(GetScreenHeight() - GetScreenHeight() / 5), 36, RAYWHITE);
+
 	DrawRectangleRec(backButton, RAYWHITE);
 	
 	Vector2 backMeasure = MeasureTextEx(GetFontDefault(), "BACK", 36, 0);
@@ -30,3 +34,5 @@ void ShowCredits(MenuScreen& currentScreen)
 
 	EndDrawing();
 }
+
+//background: https://opengameart.org/content/forest-background
