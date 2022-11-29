@@ -1,4 +1,4 @@
-#include "System/MainMenu.h"
+#include "CreditsMenu.h"
 
 void DrawTitle(const char* text);
 

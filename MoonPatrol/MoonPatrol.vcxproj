@@ -184,8 +184,11 @@
     <ClInclude Include="src\GameObjects\Enemy.h" />
     <ClInclude Include="src\GameObjects\GroundEnemy.h" />
     <ClInclude Include="src\GameObjects\Player.h" />
+    <ClInclude Include="src\System\CreditsMenu.h" />
     <ClInclude Include="src\System\GameLoop.h" />
+    <ClInclude Include="src\System\HowToPlayMenu.h" />
     <ClInclude Include="src\System\MainMenu.h" />
+    <ClInclude Include="src\System\OptionsMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

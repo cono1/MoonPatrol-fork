@@ -1,13 +1,12 @@
 #include "MainMenu.h"
 
+#include "CreditsMenu.h"
+#include "HowToPlayMenu.h"
+#include "OptionsMenu.h"
+
 void StartWindow();
 
 void ShowMenu(MenuScreen& currentScreen);
-
-void ShowCredits(MenuScreen& currentScreen);
-void ShowOptions(MenuScreen& currentScreen, bool& onePlayer);
-void ShowHowToPlay(MenuScreen& currentScreen);
-
 void DrawMenu(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton, Rectangle howToPlayButton);
 void DrawTitle(const char* text);
 void DrawButtons(Rectangle playButton, Rectangle optionsButton, Rectangle creditsButton, Rectangle quitButton, Rectangle howToPlayButton);

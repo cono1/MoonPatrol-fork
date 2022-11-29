@@ -69,5 +69,14 @@
     <ClInclude Include="src\GameObjects\AerealEnemy.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="src\System\CreditsMenu.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\HowToPlayMenu.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\OptionsMenu.h">
+      <Filter>System</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
