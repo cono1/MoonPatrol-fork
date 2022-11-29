@@ -81,19 +81,29 @@ void GameLoop(bool onePlayer)
 {
 	InitialSetup();
 
+	bool pause = false;
+
 	while (!WindowShouldClose() && playing)
 	{
-		Update(onePlayer);
-		Draw(onePlayer);
-
-		if (IsKeyPressed(KEY_M))
+		if (IsKeyPressed(KEY_P))
 		{
-			break;
+			pause = !pause;
 		}
-		
-		if (IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
+		if (!pause)
 		{
-			CloseWindow();
+
+			Update(onePlayer);
+			Draw(onePlayer);
+
+			if (IsKeyPressed(KEY_M))
+			{
+				break;
+			}
+
+			if (IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
+			{
+				CloseWindow();
+			}
 		}
 	}
 
