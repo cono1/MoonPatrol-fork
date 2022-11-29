@@ -79,17 +79,7 @@ void SortBackgrounds()
 
 void GameLoop(bool onePlayer)
 {
-	if (IsKeyPressed(KEY_Q))
-	{
-		return;
-	}
-
 	InitialSetup();
-
-	if (IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
-	{
-		CloseWindow();
-	}
 
 	while (!WindowShouldClose() && playing)
 	{
@@ -98,6 +88,11 @@ void GameLoop(bool onePlayer)
 		if (IsKeyPressed(KEY_M))
 		{
 			break;
+		}
+		
+		if (IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
+		{
+			CloseWindow();
 		}
 	}
 
@@ -188,6 +183,8 @@ void Draw(bool onePlayer)
 	BeginDrawing();
 	ClearBackground(BLACK);
 	DrawBackground();
+
+	DrawText("M to open menu", GetScreenWidth() / 3, 0, 30, WHITE);
 
 	if (!onePlayer)
 	{

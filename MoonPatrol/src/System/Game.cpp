@@ -29,10 +29,10 @@ void StartProgram()
 			break;
 		case MenuScreen::Play:
 			GameLoop(onePlayer);
-			if (!WindowShouldClose())
-			{
+			//if (!WindowShouldClose())
+			//{
 				currentScreen = MenuScreen::MainMenu;
-			}
+			//}
 			break;
 		case MenuScreen::Options: 
 			ShowOptions(currentScreen, onePlayer);
