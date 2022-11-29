@@ -79,25 +79,46 @@ void SortBackgrounds()
 
 void GameLoop(bool onePlayer)
 {
+	if (IsKeyPressed(KEY_Q))
+	{
+		return;
+	}
+
 	InitialSetup();
+
+	if (IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
+	{
+		CloseWindow();
+	}
 
 	while (!WindowShouldClose() && playing)
 	{
 		Update(onePlayer);
 		Draw(onePlayer);
-	}
-
-	while (!playing)
-	{
-		ShowFinalMessage();
 		if (IsKeyPressed(KEY_M))
 		{
+			break;
+		}
+	}
+
+	while (!playing && !WindowShouldClose())
+	{
+		ShowFinalMessage();
+
+		if (IsKeyPressed(KEY_ENTER))
+		{
 			InitialSetup();
+			playing = true;
 		}
 
 		if (IsKeyPressed(KEY_ESCAPE) || WindowShouldClose())
 		{
 			CloseWindow();
+		}
+
+		if (IsKeyPressed(KEY_M))
+		{
+			break;
 		}
 	}
 	
@@ -211,6 +232,7 @@ void ShowFinalMessage()
 	{
 		DrawText("You lost", GetScreenWidth() / 4, GetScreenHeight() / 4, 100, WHITE);
 		DrawText(TextFormat("Your score was: %i ", score), GetScreenWidth() / 6, GetScreenHeight() / 2, 80, WHITE);
+		DrawText("Press ENTER to play again", GetScreenWidth() / 4, GetScreenHeight() - 150, 40, WHITE);
 		DrawText("Press M to go back to menu", GetScreenWidth() / 4, GetScreenHeight() - 110, 40, WHITE);
 		DrawText("Press ESC to close game", GetScreenWidth() / 4, GetScreenHeight() - 70, 40, WHITE);
 	}	
@@ -218,6 +240,7 @@ void ShowFinalMessage()
 	{
 		DrawText("You reached\nthe max score!", GetScreenWidth() / 5, GetScreenHeight() / 4, 100, WHITE);
 		DrawText(TextFormat("  Your score was: %i ", score), GetScreenWidth() / 5, GetScreenHeight() - 250, 60, WHITE);
+		DrawText("Press ENTER to play again", GetScreenWidth() / 4, GetScreenHeight() - 150, 40, WHITE);
 		DrawText("Press M to go back to menu", GetScreenWidth() / 4, GetScreenHeight() - 110, 40, WHITE);
 		DrawText("Press ESC to close game", GetScreenWidth() / 4, GetScreenHeight() - 70, 40, WHITE);
 	}
