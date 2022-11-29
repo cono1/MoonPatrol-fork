@@ -18,9 +18,6 @@
     <ClCompile Include="src\GameObjects\Player.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="src\System\MainMenu.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
     <ClCompile Include="src\System\CreditsMenu.cpp">
       <Filter>System</Filter>
     </ClCompile>
@@ -43,6 +40,9 @@
     <ClCompile Include="src\System\HowToPlayMenu.cpp">
       <Filter>System</Filter>
     </ClCompile>
+    <ClCompile Include="src\System\Game.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\System\GameLoop.h">
@@ -53,9 +53,6 @@
     </ClInclude>
     <ClInclude Include="src\GameObjects\Player.h">
       <Filter>GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\System\MainMenu.h">
-      <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="src\GameObjects\BackgroundImage.h">
       <Filter>GameObjects</Filter>
@@ -76,6 +73,9 @@
       <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="src\System\OptionsMenu.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\Game.h">
       <Filter>System</Filter>
     </ClInclude>
   </ItemGroup>

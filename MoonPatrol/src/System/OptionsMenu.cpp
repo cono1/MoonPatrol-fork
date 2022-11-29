@@ -1,4 +1,4 @@
-#include "System/MainMenu.h"
+#include "System/Game.h"
 
 void ShowOptions(MenuScreen& currentScreen, bool& onePlayer)
 {

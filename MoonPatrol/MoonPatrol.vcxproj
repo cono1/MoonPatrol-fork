@@ -173,7 +173,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\System\CreditsMenu.cpp" />
     <ClCompile Include="src\System\HowToPlayMenu.cpp" />
-    <ClCompile Include="src\System\MainMenu.cpp" />
+    <ClCompile Include="src\System\Game.cpp" />
     <ClCompile Include="src\System\GameLoop.cpp" />
     <ClCompile Include="src\System\OptionsMenu.cpp" />
   </ItemGroup>
@@ -187,7 +187,7 @@
     <ClInclude Include="src\System\CreditsMenu.h" />
     <ClInclude Include="src\System\GameLoop.h" />
     <ClInclude Include="src\System\HowToPlayMenu.h" />
-    <ClInclude Include="src\System\MainMenu.h" />
+    <ClInclude Include="src\System\Game.h" />
     <ClInclude Include="src\System\OptionsMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

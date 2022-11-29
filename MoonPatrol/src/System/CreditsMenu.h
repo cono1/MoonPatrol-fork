@@ -1,5 +1,5 @@
 #pragma once
 
-#include "MainMenu.h"
+#include "Game.h"
 
 void ShowCredits(MenuScreen& currentScreen);
